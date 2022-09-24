@@ -17,6 +17,9 @@ export default function Comment()  {
                 <span className="comment__votes-number">12</span>
                 <button className="comment__votes-button btn">-</button>
             </div>
+            <p className="comment__body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quaerat incidunt necessitatibus quasi odit, consequuntur excepturi. Aliquid, repudiandae ipsum? Quas aperiam sint inventore soluta impedit dignissimos velit minima quasi veritatis.
+            </p>
         </div>
     )
 }
