@@ -4,6 +4,7 @@ import iconeEdit from "../images/icon-edit.svg";
 
 import UserInfo from "./UserInfo";
 import { useState } from "react";
+import ReplyComment from "./Reply-Comment";
 
 export default function Comment()  {
     const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
