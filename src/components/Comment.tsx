@@ -4,7 +4,7 @@ import iconeEdit from "../images/icon-edit.svg";
 
 import UserInfo from "./UserInfo";
 import { useState } from "react";
-import ReplyComment from "./NewComment";
+import NewComment from "./NewComment";
 
 export default function Comment()  {
     const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
@@ -45,7 +45,7 @@ export default function Comment()  {
                 { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@usernameReplyTo</a> }
                 <p className="comment__paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quaerat incidunt necessitatibus quasi odit, consequuntur excepturi. Aliquid, repudiandae ipsum? Quas aperiam sint inventore soluta impedit dignissimos velit minima quasi veritatis.</p>
             </div>
-            <ReplyComment picture="" altText="" buttonText="Reply" placeholderText="Add a comment..."/>
+            <NewComment picture="" altText="" buttonText="Reply" placeholderText="Add a comment..."/>
         </div>
     )
 }
