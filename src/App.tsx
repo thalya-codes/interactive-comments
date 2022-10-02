@@ -1,15 +1,40 @@
 import  Comment  from "./components/Comment";
 import NewComment from "./components/NewComment";
 import Modal from "./components/Modal";
+import ICommentsData from "./interfaces/ICommentsData";
+import IData from "./interfaces/IData";
 
-function App() {
+function App(){
+  const data: IData = require('./data.json');
+  const commentsData: ICommentsData[] = data.comments;
+
   return (
     <div className="App">
-      <Comment />
-      <NewComment picture="" altText="" buttonText="Reply" placeholderText="Add a comment..."/>
+      {
+        commentsData.map((comment: ICommentsData) => (
+          <>
+            <Comment 
+              id={ comment.id }
+              username={ comment.user.username }
+              picture={ require(`${ comment.user.image.png  }`) }
+              content={ comment.content }
+              score={ comment.score }
+              replies={ comment.replies }
+              createdAt={ comment.createdAt }
+            />            
+          </>
+        ))
+      }
+      
+      <NewComment 
+        picture="" 
+        altText="" 
+        buttonText="Reply" 
+        placeholderText="Add a comment..."
+      />
+
       <Modal />
     </div>
   );
 }
-
 export default App;
