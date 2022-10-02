@@ -5,15 +5,20 @@ import iconeEdit from "../images/icon-edit.svg";
 import UserInfo from "./UserInfo";
 import { useState } from "react";
 
-export default function Comment()  {
+export default function Comment(props: any)  {
     const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
     const [isTheAuthorOfBlog, setIsTheAuthorOfBlog ] = useState<boolean>(false);
 
     return (
-        <div className="comment">
+        <div className="comment" key={`key-comment-${props.username}--${props.id}`}>
             <div className="comment__header">
-                <UserInfo username="" picture="" altText="" isTheAuthorOfBlog={ isTheAuthorOfBlog }/>
-                <span className="comment__date">1 month ago</span>   
+                <UserInfo 
+                    username={props.username} 
+                    picture={props.picture} 
+                    altText="" 
+                    isTheAuthorOfBlog={ isTheAuthorOfBlog }
+                />
+                <span className="comment__date">{ props.createdAt }</span>   
                 
                 { isTheAuthorOfBlog ? 
                   <div className="comment__button-group">
@@ -34,15 +39,16 @@ export default function Comment()  {
                 } 
 
             </div>
-            <div className="comment__votes">
-                <button className="comment__votes-button btn">+</button>
-                <span className="comment__votes-number">12</span>
-                <button className="comment__votes-button btn">-</button>
-            </div>
-            
+
+            <div className="comment__score">
+                <button className="comment__score-button btn">+</button>
+                <span className="comment__score-number">{ props.score }</span>
+                <button className="comment__score-button btn">-</button>
+            </div>    
+
             <div className="comment__body">
-                { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@usernameReplyTo</a> }
-                <p className="comment__paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quaerat incidunt necessitatibus quasi odit, consequuntur excepturi. Aliquid, repudiandae ipsum? Quas aperiam sint inventore soluta impedit dignissimos velit minima quasi veritatis.</p>
+                { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@{ props.replies }</a> }
+                <p className="comment__paragraph">{ props.content }</p>
             </div>
         </div>
     )
