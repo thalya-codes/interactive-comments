@@ -1,0 +1,48 @@
+@import '../../global/variables.scss';
+
+.comment {
+    width: 50vw;    
+    margin-top: 100px;
+
+    &__score { 
+        margin-right: 20px;
+        
+        &-button {
+            border: none !important;
+            color: $moderate-blue !important;
+        }
+
+        &-number {
+            color:  $moderate-blue;
+        }
+    }
+    
+    &__wrapper-score-and-header {
+        width: 100%;
+    }
+
+    &__header {
+        width: 90%;
+
+        &-userInfo-date {
+            width: 43%;
+        }
+    }
+
+    &__button-reply {
+        border: none !important;
+       
+        &-text {
+            color: $moderate-blue;
+        }
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    &__body {
+        width: 90%;
+        color: rgb(77, 76, 76);
+    }
+}

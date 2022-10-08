@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import INewComment from "../interfaces/INewComment";
-import Avatar from "./Avatar";
+import Avatar from "./Avatar/Avatar";
 
 export default function NewComment(props: INewComment) {
    const addUsernameIntoTextArea = (): void => {       

@@ -1,6 +1,6 @@
-import  Comment  from "./components/Comment";
-import NewComment from "./components/NewComment";
-import Modal from "./components/Modal";
+import './global/style.scss';
+
+import  Comment  from "./components/Comment/Comment";
 import ICommentsData from "./interfaces/ICommentsData";
 import IData from "./interfaces/IData";
 
@@ -25,15 +25,6 @@ function App(){
           </>
         ))
       }
-      
-      <NewComment 
-        picture="" 
-        altText="" 
-        buttonText="Reply" 
-        placeholderText="Add a comment..."
-      />
-
-      <Modal />
     </div>
   );
 }

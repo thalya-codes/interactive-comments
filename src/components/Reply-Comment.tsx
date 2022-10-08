@@ -1,4 +1,4 @@
-import Avatar from "./Avatar";
+import Avatar from "./Avatar/Avatar";
 import IAvatar from "../interfaces/IAvatar";
 
 export default function ReplyComment(props: IAvatar) {
