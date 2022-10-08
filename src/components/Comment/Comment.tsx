@@ -1,11 +1,6 @@
 import './style.scss';
-
-import UserInfo from "../UserInfo/UserInfo";
 import { useState } from "react";
-
-import iconReplay from "../../images/icon-reply.svg";
-import iconDelete from "../../images/icon-delete.svg";
-import iconeEdit from "../../images/icon-edit.svg";
+import HeaderComment from '../HeaderComment/HeaderComment';
 
 export default function Comment(props: any)  {
     const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
@@ -19,8 +14,16 @@ export default function Comment(props: any)  {
                 <button className="comment__score-button fw-bold btn">-</button>
             </div>    
 
-            <div className="d-flex  flex-column comment__wrapper-score-and-header" >
-                <div className="d-flex justify-content-between align-items-baseline comment__header">
+            <div className="d-flex  flex-column comment__wrapper-header-and-body" >
+                <HeaderComment
+                    username={ props.username }
+                    picture={ props.picture }
+                    altText=""
+                    isTheAuthorOfBlog={ isTheAuthorOfBlog }
+                    createdAt={ props.createdAt }
+                >{ props.children }</HeaderComment> 
+
+                {/* <div className="d-flex justify-content-between align-items-baseline comment__header">
                     <div className=" d-flex justify-content-between align-items-baseline comment__header-userInfo-date">
                         <UserInfo 
                             username={props.username} 
@@ -30,7 +33,10 @@ export default function Comment(props: any)  {
                         />
                         <span className="text-secondary comment__date">{ props.createdAt }</span>   
                     </div>
+
                     
+
+
                     { isTheAuthorOfBlog ? 
                     <div className="comment__button-group">
                         <button className="comment_button-delete">
@@ -48,8 +54,8 @@ export default function Comment(props: any)  {
                         <span className="fw-bold mx-2 comment__button-reply-text">Reply</span>
                     </button>
                     } 
-                </div>
-
+                </div> */}
+                
                 <div className="mt-3 comment__body">
                     { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@{ props.replies }</a> }
                     <p className="comment__paragraph">{ props.content }</p>

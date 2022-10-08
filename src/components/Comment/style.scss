@@ -17,17 +17,17 @@
         }
     }
     
-    &__wrapper-score-and-header {
+    &__wrapper-header-and-body {
         width: 100%;
     }
 
-    &__header {
+    &__body {
         width: 90%;
-
-        &-userInfo-date {
-            width: 43%;
-        }
+        color: rgb(77, 76, 76);
     }
+}
+
+/*
 
     &__button-reply {
         border: none !important;
@@ -40,9 +40,4 @@
             opacity: .5;
         }
     }
-
-    &__body {
-        width: 90%;
-        color: rgb(77, 76, 76);
-    }
-}
+*/
