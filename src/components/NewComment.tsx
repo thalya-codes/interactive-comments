@@ -14,8 +14,7 @@ export default function NewComment(props: INewComment) {
             } else {
                 currentTextArea.innerText = '';
             }
-        });
-        
+        });        
     };  
 
     useEffect(() => {
