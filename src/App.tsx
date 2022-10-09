@@ -1,10 +1,11 @@
 import './global/style.scss';
 
 import  Comment  from "./components/Comment/Comment";
+import Button from './components/Button/Button';
+
 import ICommentsData from "./interfaces/ICommentsData";
 import IData from "./interfaces/IData";
-import NewComment from './components/NewComment';
-import HeaderComment from './components/HeaderComment/HeaderComment';
+
 
 function App(){
   const data: IData = require('./data.json');
@@ -24,7 +25,18 @@ function App(){
               replies={ comment.replies }
               createdAt={ comment.createdAt }
             >
-              <button>Reply</button>
+              <Button
+                id="1"
+                text="Edit"
+                typeAction='edit'
+                hasIcon= "true"              
+              />
+              <Button
+                id="2"
+                text="Delete"
+                typeAction='delete'
+                hasIcon= "true"              
+              />
             </Comment>
           </>
         ))

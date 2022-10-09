@@ -22,40 +22,7 @@ export default function Comment(props: any)  {
                     isTheAuthorOfBlog={ isTheAuthorOfBlog }
                     createdAt={ props.createdAt }
                 >{ props.children }</HeaderComment> 
-
-                {/* <div className="d-flex justify-content-between align-items-baseline comment__header">
-                    <div className=" d-flex justify-content-between align-items-baseline comment__header-userInfo-date">
-                        <UserInfo 
-                            username={props.username} 
-                            picture={props.picture} 
-                            altText="" 
-                            isTheAuthorOfBlog={ isTheAuthorOfBlog }
-                        />
-                        <span className="text-secondary comment__date">{ props.createdAt }</span>   
-                    </div>
-
-                    
-
-
-                    { isTheAuthorOfBlog ? 
-                    <div className="comment__button-group">
-                        <button className="comment_button-delete">
-                            <img className="comment_button-edit-icon" src={ iconDelete } alt="Trash icon" />
-                            <span className="comment_button-edit-text">Delete</span>
-                        </button>
-                        <button className="comment_button-edit">
-                            <img className="comment_button-edit-icon" src={ iconeEdit } alt="Pencil icon" />
-                            <span className="comment_button-edit-text">Edit</span>
-                        </button>
-                    </div>
-                    :
-                    <button className="btn  comment__button-reply">
-                        <img src={ iconReplay } className="comment__button-replycomment__button-reply-icon" alt="Arrow icon"/>
-                        <span className="fw-bold mx-2 comment__button-reply-text">Reply</span>
-                    </button>
-                    } 
-                </div> */}
-                
+               
                 <div className="mt-3 comment__body">
                     { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@{ props.replies }</a> }
                     <p className="comment__paragraph">{ props.content }</p>
