@@ -20,7 +20,7 @@ export default function HeaderComment (props: IHeaderComment) {
                 <span className="text-secondary header-comment__createdAt">{ props.createdAt }</span> 
             </div>
 
-            <div>{ props.children }</div>  
+            <div className='d-flex d-flex align-items-center'>{ props.children }</div>  
         </div>
     )
 }

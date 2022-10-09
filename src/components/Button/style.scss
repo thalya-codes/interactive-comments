@@ -1,0 +1,39 @@
+@import '../../global/variables.scss';
+
+.button {
+    border: none !important;
+
+    &--withBackgroundColor {
+        width: 100px;
+        padding: 10px !important;
+
+        color: #fff !important;
+
+        &.button-backgroundDefault {
+            background-color: $moderate-blue !important;
+        }
+    
+        &.button-backgroundDanger {
+            background-color: $red !important;
+        }
+    
+        &.button-backgroundCancel {
+            background-color: $grayish-blue !important;    
+        }
+    }
+
+    &--withIcon {
+        .button__text-reply {
+            color:  $moderate-blue !important;
+        }
+
+        .button__text-delete {
+            color:   $red !important;
+        }
+    }
+
+
+    &:hover {
+        opacity: .5;
+    }
+}
