@@ -29,13 +29,15 @@ function App(){
                 id="1"
                 text="Edit"
                 typeAction='edit'
-                hasIcon= "true"              
+                hasIcon= "true" 
+                onClickCustomFunc={() => alert('edit button')}             
               />
               <Button
                 id="2"
                 text="Delete"
                 typeAction='delete'
-                hasIcon= "true"              
+                hasIcon= "true"  
+                onClickCustomFunc={() => alert('delete button')}            
               />
             </Comment>
           </>
