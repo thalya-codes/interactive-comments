@@ -39,7 +39,7 @@ export default function Button(props: IButton) {
             id={ id } 
             className= {`
                 btn fw-bolder d-flex align-items-center button 
-                ${ hasBackgroundColor ? 'button-withBackgroundColor' : '' }
+                ${ hasBackgroundColor ? 'button--withBackgroundColor' : '' }
                 ${ hasIcon ? 'button--withIcon' : '' }
                 ${ selectButtonBackround() }
                 ${ textIsUppercase ? 'text-uppercase' : '' }

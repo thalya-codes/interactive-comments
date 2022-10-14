@@ -2,23 +2,29 @@
 
 .button {
     border: none !important;
-
+    
     &--withBackgroundColor {
-        width: 100px;
+        width: 100px !important;
+        height:  44px;
+
         padding: 10px !important;
 
         color: #fff !important;
-
+        
         &.button-backgroundDefault {
             background-color: $moderate-blue !important;
         }
-    
+        
         &.button-backgroundDanger {
             background-color: $red !important;
         }
-    
+        
         &.button-backgroundCancel {
             background-color: $grayish-blue !important;    
+        }
+
+        span {
+            width: 100%;
         }
     }
 

@@ -6,6 +6,8 @@ export default interface IData {
             png?: string;
             webp?: string;
         }
+
+        username: string
     };
 
     comments: ICommentsData[];

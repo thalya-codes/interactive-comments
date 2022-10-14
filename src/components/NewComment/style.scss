@@ -1,0 +1,12 @@
+.new-comment {
+    width: 50vw;
+    
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 60px;
+
+    &__textarea {
+        width: 70% !important;
+    }
+}
