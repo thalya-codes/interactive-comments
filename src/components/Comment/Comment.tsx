@@ -5,7 +5,25 @@ import HeaderComment from '../HeaderComment/HeaderComment';
 export default function Comment(props: any)  {
     const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
     const [isTheAuthorOfBlog, setIsTheAuthorOfBlog ] = useState<boolean>(false);
+    
+//TODO
+/*     const addUsernameIntoTextArea = (): void => {       
+        const allTextArea = document.querySelectorAll(".new-comment__textarea"); 
+        
+        allTextArea.forEach((item: Element) => {
+            const currentTextArea = item as HTMLTextAreaElement;
 
+            if (props.isReplyComment && props.usernameAwnswered) {
+                currentTextArea.innerText = `@${props.usernameToReply} `
+            } else {
+                currentTextArea.innerText = '';
+            }
+        });        
+    };  
+
+    useEffect(() => {
+        addUsernameIntoTextArea();
+    }); */
     return (
         <div className="d-flex comment__wrapper justify-content-between comment" key={`key-comment-${props.username}--${props.id}`}>        
             <div className="d-flex flex-column align-items-center fw-bold comment__score">

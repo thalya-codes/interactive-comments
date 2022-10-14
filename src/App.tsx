@@ -5,6 +5,7 @@ import Button from './components/Button/Button';
 
 import ICommentsData from "./interfaces/ICommentsData";
 import IData from "./interfaces/IData";
+import NewComment from './components/NewComment/NewComment';
 
 
 function App(){
@@ -43,6 +44,14 @@ function App(){
           </>
         ))
       }
+        <NewComment 
+          id='2'
+          btnText='send'
+          btnTypeAction='send'
+          picture={ require(`${data.currentUser.image.png }`) }
+          altText=''
+          btnOnClickCustomFunc={() => alert('botao send new comment')}
+        />    
     </div>
   );
 }
