@@ -7,8 +7,8 @@ import IconEdit from'../../images/icon-edit.svg' ;
 import IconDelete from'../../images/icon-delete.svg' ;
 
 export default function Button(props: IButton) {
-    const { id, text, typeAction, hasIcon, hasBackgroundColor , textIsUppercase  }:IButton = props; 
-    
+    const { id, text, typeAction, hasIcon, hasBackgroundColor , textIsUppercase, onClickCustomFunc }:IButton = props; 
+ 
     const selectButtonBackround = (): string => {
         switch (hasBackgroundColor && typeAction) {
             case 'delete':
@@ -44,6 +44,7 @@ export default function Button(props: IButton) {
                 ${ selectButtonBackround() }
                 ${ textIsUppercase ? 'text-uppercase' : '' }
             `}
+            onClick={() => onClickCustomFunc?.()}
         >
 
             { hasIcon && <img className='me-2' src={ selectButtonIcon() } alt=''/> }

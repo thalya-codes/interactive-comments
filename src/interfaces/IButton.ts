@@ -1,3 +1,4 @@
+
 export default interface IButton {
     id: string;
     text: string;
@@ -5,4 +6,5 @@ export default interface IButton {
     hasIcon?:string;
     hasBackgroundColor?: string;
     textIsUppercase?: string;
+    onClickCustomFunc?: Function;
 }
