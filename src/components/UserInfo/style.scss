@@ -1,0 +1,13 @@
+@import '../../global/variables.scss';
+
+.userInfo {
+    &__author-marker {
+        background-color: $moderate-blue;
+        border-radius: 5px;
+
+        padding: 3px;
+        
+        font-size: 15px;
+        font-family: 'Rubik', sans-serif;
+    }
+}
