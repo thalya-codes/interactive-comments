@@ -24,23 +24,9 @@ function App(){
               content={ comment.content }
               score={ comment.score }
               replies={ comment.replies }
-              createdAt={ comment.createdAt }
-            >
-              <Button
-                id="1"
-                text="Edit"
-                typeAction='edit'
-                hasIcon= "true" 
-                onClickCustomFunc={() => alert('edit button')}             
-              />
-              <Button
-                id="2"
-                text="Delete"
-                typeAction='delete'
-                hasIcon= "true"  
-                onClickCustomFunc={() => alert('delete button')}            
-              />
-            </Comment>
+              createdAt={ comment.createdAt }             
+            />
+
           </>
         ))
       }
