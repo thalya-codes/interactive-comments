@@ -1,51 +1,50 @@
 import './style.scss';
-import { useState } from "react";
-import HeaderComment from '../HeaderComment/HeaderComment';
+import HeaderComment from 'components/HeaderComment/HeaderComment';
+import { Props } from 'interfaces/IComment';
+import { ICommentsData } from 'interfaces/IComment';
 
-export default function Comment(props: any)  {
-    const [isAResponseComment, setisAResponseComment ] = useState<boolean>(false);
-    
-//TODO
-/*     const addUsernameIntoTextArea = (): void => {       
-        const allTextArea = document.querySelectorAll(".new-comment__textarea"); 
-        
-        allTextArea.forEach((item: Element) => {
-            const currentTextArea = item as HTMLTextAreaElement;
+export default function Comment({ data, id }: Props)  {
 
-            if (props.isReplyComment && props.usernameAwnswered) {
-                currentTextArea.innerText = `@${props.usernameToReply} `
-            } else {
-                currentTextArea.innerText = '';
-            }
-        });        
-    };  
+    const commentStructure = (data: ICommentsData, isReply: boolean) => {        
+        return (
+            <div className='d-flex comment__wrapper justify-content-between comment' key={`key-comment-${data.user.username}--${data.id}`}>        
+                <div className='d-flex flex-column align-items-center fw-bold comment__score'>
+                    <button className='comment__score-button fw-bold btn'>+</button>
+                    <span className='comment__score-number'>{ data.score }</span>
+                    <button className='comment__score-button fw-bold btn'>-</button>
+                </div>    
 
-    useEffect(() => {
-        addUsernameIntoTextArea();
-    }); */
-    return (
-        <div className="d-flex comment__wrapper justify-content-between comment" key={`key-comment-${props.username}--${props.id}`}>        
-            <div className="d-flex flex-column align-items-center fw-bold comment__score">
-                <button className="comment__score-button fw-bold btn">+</button>
-                <span className="comment__score-number">{ props.score }</span>
-                <button className="comment__score-button fw-bold btn">-</button>
-            </div>    
-
-            <div className="d-flex  flex-column comment__wrapper-header-and-body" >
-                <HeaderComment
-                    id={`header-comment--${props.id}`}
-                    username={ props.username }
-                    picture={ props.picture }
-                    altText=""
-                    isTheAuthor={ props.isTheAuthor}
-                    createdAt={ props.createdAt }
-                />
-               
-                <div className="mt-3 comment__body">
-                    { isAResponseComment && <a href="#reply"className="comment__body-repliedTo">@{ props.replies }</a> }
-                    <p className="comment__paragraph">{ props.content }</p>
+                <div className='d-flex flex-column comment__header-and-body' >
+                    <HeaderComment
+                        id={`header-comment--${data.id}`}
+                        username={ data.user.username }
+                        picture={require(`../../${ data.user.image.png  }`)}
+                        altText=''
+                        isTheAuthor={ data.user.username === 'juliusomo' && true }
+                        createdAt={ data.createdAt }
+                    />
+                
+                    <div className='mt-3 comment__body'>                  
+                        { isReply && <span className='comment__body-replyingTo'>@{ data.replyingTo}</span> }
+                        <p className='comment__body-paragraph'>{ data.content }</p>
+                    </div>
                 </div>
             </div>
+        );
+    };
+
+    return (
+        <div id={ id } className='container'>
+            <div>
+                { data.comments.map((comment: ICommentsData) =>  commentStructure(comment, false)) }
+            </div>
+
+            <div className='container__replies'>
+                { data.comments.map((comment: ICommentsData) => (
+                    comment.replies.map((reply: ICommentsData) => commentStructure(reply, true)))) 
+                }
+            </div>
         </div>
-    )
+
+    );
 }

@@ -1,28 +1,50 @@
 @import '../../global/variables.scss';
 
-.comment {
-    width: 50vw;    
-    margin-top: 100px;
-
-    &__score { 
-        margin-right: 20px;
-        
-        &-button {
-            border: none !important;
-            color: $moderate-blue !important;
-        }
-
-        &-number {
-            color:  $moderate-blue;
-        }
-    }
+.container {
+    .comment {
+        width: 50vw;    
+        margin-top: 80px;
     
-    &__wrapper-header-and-body {
-        width: 100%;
+        &__score { 
+            margin-right: 20px;
+            
+            &-button {
+                border: none !important;
+                color: $moderate-blue !important;
+            }
+    
+            &-number {
+                color:  $moderate-blue;
+            }
+        }
+        
+        &__header-and-body {
+            width: 100%;
+        }
+    
+        &__body {
+            width: 90%;
+            color: rgb(77, 76, 76);
+
+            &-replyingTo {
+                color: $moderate-blue;
+                font-weight: bold;
+                margin-right: 5px;
+            }
+
+            &-paragraph {
+                display: inline;
+            }
+        }
     }
 
-    &__body {
-        width: 90%;
-        color: rgb(77, 76, 76);
+    &__replies {
+        min-height: 150px;
+        border-left: 1px solid #ccc;
+        margin-left: 70px;
+
+        .comment {
+            margin-left: 20px;
+        }
     }
 }
