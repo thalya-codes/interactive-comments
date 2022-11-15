@@ -1,17 +1,51 @@
 import './style.scss';
 import HeaderComment from 'components/HeaderComment/HeaderComment';
-import { Props } from 'interfaces/IComment';
-import { ICommentsData } from 'interfaces/IComment';
+import { ICommentsData, IProps } from 'interfaces/IComment';
+import { useState } from 'react';
 
-export default function Comment({ data, id }: Props)  {
+export default function Comment({ data, id }: IProps)  {
+    const [counter, setCounter] = useState(0);
+  
+    const sumScore = (id: number, isReply: boolean) => {        
+        const comments: ICommentsData[] = data.comments;
+     
+        if (isReply) {
+            comments.forEach((comentario: ICommentsData):void => comentario.replies.forEach((reply: ICommentsData):void => {
+                reply.id === id && setCounter(reply.score++);
+           }));
+           
+        } else {
+            const indexElement: number = data.comments.findIndex((comment: ICommentsData) => comment.id === id);
+            setCounter(comments[indexElement].score++);            
+        }
+           
+    }
 
-    const commentStructure = (data: ICommentsData, isReply: boolean) => {        
-        return (
+    const substractScore = (id: number, isReply: boolean) => {
+        const comments: ICommentsData[] = data.comments;
+        
+        if (isReply) {
+            comments.forEach((comentario: ICommentsData):void => comentario.replies.forEach((reply: ICommentsData):void => {
+                (reply.id === id && reply.score > 0) && setCounter(reply.score--);
+           }));
+           
+        } else {
+            const indexElement: number = data.comments.findIndex((comment: ICommentsData) => comment.id === id);
+            comments[indexElement].score > 0 && setCounter(comments[indexElement].score--);
+        }   
+    }  
+
+    const commentStructure = (data: ICommentsData, isReply: boolean) => {    
+        return (            
             <div className='d-flex comment__wrapper justify-content-between comment' key={`key-comment-${data.user.username}--${data.id}`}>        
                 <div className='d-flex flex-column align-items-center fw-bold comment__score'>
-                    <button className='comment__score-button fw-bold btn'>+</button>
-                    <span className='comment__score-number'>{ data.score }</span>
-                    <button className='comment__score-button fw-bold btn'>-</button>
+                    <button className='comment__score-button fw-bold btn'
+                        onClick={() => sumScore(data.id, isReply)}
+                    >+</button>         
+                    <span className='comment__score-number'> {data.score} </span>        
+                    <button className='comment__score-button fw-bold btn'
+                        onClick={() => substractScore(data.id, isReply)}
+                    >-</button>
                 </div>    
 
                 <div className='d-flex flex-column comment__header-and-body' >
