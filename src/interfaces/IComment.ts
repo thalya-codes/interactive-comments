@@ -32,7 +32,7 @@ export interface ICommentsData   {
     replyingTo?: string;
 };
 
-export interface Props {
+export interface IProps {
     data: IData;
     id: string;
-}
+};
