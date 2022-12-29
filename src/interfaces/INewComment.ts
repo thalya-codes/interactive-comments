@@ -5,5 +5,5 @@ export default interface INewComment extends IAvatar{
     placeholderText?: string;    
     btnTypeAction: 'send' | 'reply';
     btnText: string;
-    btnOnClickCustomFunc?: Function;
+    addNewComment: Function;
 }

@@ -3,12 +3,11 @@ import HeaderComment from "components/HeaderComment/HeaderComment";
 import { ICommentsData, IProps } from "interfaces/IComment";
 import { useState } from "react";
 
-export default function Comment({ data, id }: IProps) {
+export default function Comment({ comments, id }: IProps) {
   const [counter, setCounter] = useState(0);
 
   const sumScore = (id: number, isReply: boolean) => {
-    const comments: ICommentsData[] = data.comments;
-
+ 
     if (isReply) {
       comments.forEach((comentario: ICommentsData): void =>
         comentario.replies.forEach((reply: ICommentsData): void => {
@@ -16,7 +15,7 @@ export default function Comment({ data, id }: IProps) {
         })
       );
     } else {
-      const indexElement: number = data.comments.findIndex(
+      const indexElement: number = comments.findIndex(
         (comment: ICommentsData) => comment.id === id
       );
       setCounter(comments[indexElement].score++);
@@ -24,7 +23,6 @@ export default function Comment({ data, id }: IProps) {
   };
 
   const substractScore = (id: number, isReply: boolean) => {
-    const comments: ICommentsData[] = data.comments;
 
     if (isReply) {
       comments.forEach((comentario: ICommentsData): void =>
@@ -33,7 +31,7 @@ export default function Comment({ data, id }: IProps) {
         })
       );
     } else {
-      const indexElement: number = data.comments.findIndex(
+      const indexElement: number = comments.findIndex(
         (comment: ICommentsData) => comment.id === id
       );
       comments[indexElement].score > 0 &&
@@ -88,7 +86,7 @@ export default function Comment({ data, id }: IProps) {
 
   return (
     <div id={id} className="container">
-      {data.comments.map((comment: ICommentsData) => (
+      {comments.map((comment: ICommentsData) => (
         <>
           {commentStructure(comment, false)}
 					

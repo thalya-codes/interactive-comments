@@ -3,6 +3,7 @@ import './style.scss';
 import INewComment from "../../interfaces/INewComment";
 import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
+import React from 'react';
 
 export default function NewComment(props: INewComment) {
    const { 
@@ -11,13 +12,20 @@ export default function NewComment(props: INewComment) {
         placeholderText = 'Add comment...', 
         btnText,
         btnTypeAction, 
-        btnOnClickCustomFunc
+        addNewComment
     } : INewComment = props;
 
+    const getTextareaValue = (): void => {
+        const textarea = document.getElementById(`text-area-${id}`) as HTMLTextAreaElement;
+        addNewComment(textarea.value);
+        textarea.value = ''
+    };
+
     return (
-        <div className='new-comment'>
+        <div id={id} className='new-comment'>
             <Avatar picture={ picture } altText={ altText } />
             <textarea 
+                id={`text-area-${id}`}
                 className='form-control text-secondary new-comment__textarea'
                 rows={3} placeholder={ placeholderText && placeholderText }
             />
@@ -27,7 +35,7 @@ export default function NewComment(props: INewComment) {
                 hasBackgroundColor='true'
                 typeAction={ btnTypeAction }
                 textIsUppercase='true'
-                onClickCustomFunc={ btnOnClickCustomFunc }
+                onClickCustomFunc={ () => getTextareaValue()}
             />
         </div>
     );

@@ -33,6 +33,6 @@ export interface ICommentsData   {
 };
 
 export interface IProps {
-    data: IData;
     id: string;
+    comments: ICommentsData[];
 };
