@@ -1,0 +1,259 @@
+[33mcommit fe7e2b5ad2d31622038df9365d65ad66c615cfe5[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/armazenamento_no_localstorage[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: 19fefad e228494
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Mon Dec 26 16:38:22 2022 -0300
+
+    Merge pull request #17 from thalya-codes/feature/realiza_ajuste_nos_replies
+    
+    fix: realiza ajuste na estrutura do componente Comment para que as replies sejam renderizadas corretamente.
+
+[33mcommit e228494eefc37061dd279e846a6aeb602a8be513[m[33m ([m[1;31morigin/feature/realiza_ajuste_nos_replies[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Mon Dec 26 16:35:33 2022 -0300
+
+    fix: realiza ajuste na estrutura do componente Comment para que as replies seja renderizadas corretamente.
+
+[33mcommit 19fefad05bccf0054bafcab37d734ed45948402f[m[33m ([m[1;31morigin/feature/armazenamento_no_localstorage[m[33m)[m
+Merge: bf099dd 0bf94ee
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Tue Nov 15 12:17:45 2022 -0300
+
+    Merge pull request #16 from thalya-codes/feature/criação-counter
+    
+    Feature/criação-counter
+
+[33mcommit 0bf94eeaba067afc1683deab0d0f776945d6d014[m[33m ([m[1;31morigin/feature/criação-counter[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Tue Nov 15 12:15:18 2022 -0300
+
+    feat: cria funções responsáveis por somar e subtrair o score de cada comentário
+
+[33mcommit bf099dd6661dc52aae5c6cc311710a7989daa053[m
+Merge: b03e1f0 6cea69d
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sun Oct 23 21:37:11 2022 -0300
+
+    Merge pull request #15 from thalya-codes/feat/adiciona_novas_funcionalidades_Comment
+    
+    Feat/adiciona novas funcionalidades ao componente comment
+
+[33mcommit 6cea69d938276e72cd141aec40aa56c130a3f56a[m[33m ([m[1;31morigin/feat/adiciona_novas_funcionalidades_Comment[m[33m, [m[1;32mfeat/adiciona_novas_funcionalidades_Comment[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sun Oct 23 21:35:36 2022 -0300
+
+    feat: reestrutura o componente Comment, adicionando opção de respostas de comentários e cria estilização da nova feature.
+
+[33mcommit b03e1f063c6f818cbf9da14097582f51aee33057[m
+Merge: 7e6e46b e08a0f3
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sun Oct 23 16:49:33 2022 -0300
+
+    Merge pull request #14 from thalya-codes/refactor/refatoração_componente_UserInfo
+    
+    refactor: adiciona estilização ao marcador do autor
+
+[33mcommit e08a0f3c30fbe6cf9a687835575288324fa981fd[m[33m ([m[1;31morigin/refactor/refatoração_componente_UserInfo[m[33m, [m[1;32mrefactor/refatoração_componente_UserInfo[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sun Oct 23 16:48:50 2022 -0300
+
+    refactor: adiciona estilização ao marcador do autor
+
+[33mcommit 7e6e46bf2f7f96022a5f98ef45b660a35ca29fbc[m
+Merge: 0067410 4734d90
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sun Oct 23 15:49:44 2022 -0300
+
+    Merge pull request #13 from thalya-codes/refactor/refatoração_HeaderComment
+    
+    refactor: refatora a maneira como a lista de botões é passada para o componente HeaderComment
+
+[33mcommit 4734d90bed6271a554b1b2dd87479ac0ff0b79d9[m[33m ([m[1;31morigin/refactor/refatoração_HeaderComment[m[33m, [m[1;32mrefactor/refatoração_HeaderComment[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sun Oct 23 15:42:05 2022 -0300
+
+    refactor: refatora a maneira como a lista de botões é passada para o componente
+
+[33mcommit 0067410e3bbf2f4d98296614ca83f27e30d5018e[m
+Merge: 2d177d9 5f33c20
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Fri Oct 14 19:37:10 2022 -0300
+
+    Merge pull request #11 from thalya-codes/refactor/refatoração_componente_new-comment
+    
+    refactor: refatora estrutura do componente NewComment e adiciona estilização ao mesmo
+
+[33mcommit 5f33c2003779f750e4a26bca8a6855cf0d8425f7[m[33m ([m[1;31morigin/refactor/refatoração_componente_new-comment[m[33m, [m[1;32mrefactor/refatoração_componente_new-comment[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Oct 14 19:30:57 2022 -0300
+
+    refactor: refatora estrutura do componente NewComment e adiciona estilzação ao mesmo
+
+[33mcommit 2d177d9fd73b40a56899c5a8985f630b078a6f02[m
+Merge: fae95b1 bcec5bd
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Fri Oct 14 17:46:15 2022 -0300
+
+    Merge pull request #10 from thalya-codes/feature/criacao_evento_de_clique_button
+    
+    feat: implementa evento de clique customizado ao componente Button
+
+[33mcommit bcec5bd07c564d2d84c1a4404b47595d63b136e4[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Oct 14 17:43:43 2022 -0300
+
+    feat: implementa evento de clique customizado ao componente Button
+
+[33mcommit fae95b17c1090fd1018fe4f6de82d83e06838468[m
+Merge: 5adaa3d ad5bf48
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sat Oct 8 23:39:09 2022 -0300
+
+    Merge pull request #9 from thalya-codes/feature/criação_component_button
+    
+    feat: cria a estrutura e estilização do componente Button
+
+[33mcommit ad5bf48e8a3726ed44178af7259a5e6fc1865426[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Oct 8 23:33:17 2022 -0300
+
+    feat: cria a estrutura e estilização do componente Button
+
+[33mcommit 5adaa3d49e4addae06481d7cf176807d1507bd69[m
+Merge: 30dea7b e451c56
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sat Oct 8 20:49:59 2022 -0300
+
+    Merge pull request #8 from thalya-codes/feature/criação_do_componente_header-comment
+    
+    Feature/criação do componente HeaderComment
+
+[33mcommit e451c56d6648ed4f30a6dab7849d01fb1c07419d[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Oct 8 20:47:06 2022 -0300
+
+    feat: cria component HeaderComment e realiza ajustes na estilização dos demais componentes
+
+[33mcommit 30dea7b9a04423c7a031d78d93846155bc871c6e[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Oct 8 19:01:35 2022 -0300
+
+    feat: cria estilização do componente comment
+
+[33mcommit 45d930e03ec1217cecf6822ce7d8b618dee2d72d[m
+Merge: cfc26dd fb09efe
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sun Oct 2 20:53:11 2022 -0300
+
+    Merge pull request #6 from thalya-codes/feature/criação_consumo_da_api
+    
+    feat: consome dados da aplicação e os  distribui para o componente Comment
+
+[33mcommit fb09efe262d91f80dbd90270dc1850f85a8d3139[m[33m ([m[1;31morigin/feature/criação_consumo_da_api[m[33m, [m[1;32mfeature/criação_consumo_da_api[m[33m)[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sun Oct 2 20:47:39 2022 -0300
+
+    feat: consome dados da aplicação e os  distribui para o componente Comment
+
+[33mcommit cfc26dd447bcd44187bf65752aef7031abfbe74f[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Sep 30 21:53:07 2022 -0300
+
+    feature: cria estrutura HTML do componente Modal
+
+[33mcommit 84c878974c074cc72e53119f4125cb25fedd0b25[m
+Merge: 3a6d2eb af4f581
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Sep 30 21:01:57 2022 -0300
+
+    Merge branch 'feature/criação_campo_de_inserir_novo_comentário' into develop
+
+[33mcommit af4f58136074794521746845aaded5996bdac550[m[33m ([m[1;31morigin/feature/criação_campo_de_inserir_novo_comentário[m[33m)[m
+Merge: d1142b4 50b36d4
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Sep 30 20:57:34 2022 -0300
+
+    Merge branch 'feature/criação_campo_de_inserir_novo_comentário' of https://github.com/thalya-codes/interactive-comments into feature/criação_campo_de_inserir_novo_comentário
+
+[33mcommit d1142b4d3311bf7d68c08b405e4476dcd8b2609d[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Fri Sep 30 20:55:00 2022 -0300
+
+    feat: cria estrutura HTML do componente NewComment
+
+[33mcommit 50b36d46936cabed53caae1b54c62f96b817252f[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Tue Sep 27 06:39:25 2022 -0300
+
+    feat: cria estrutura HTML do componente ReplyComment
+
+[33mcommit 3a6d2eb0f6f28ad6a830dedf435363d4294c0b07[m
+Merge: 65e9a43 23a924b
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sat Sep 24 18:44:38 2022 -0300
+
+    Merge pull request #4 from thalya-codes/refactor/dividi_o_component_comment_em_componentes_menores
+    
+    refactor: dividi o componente Comment em componentes menores e realiza ajustes na estrutura HTML
+
+[33mcommit 23a924b59f6ff059ee3833188af4bb6383c0cb5b[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Sep 24 18:40:52 2022 -0300
+
+    refactor: dividi o componente Comment em componentes menores e realiza ajustes na estrutura HTML
+
+[33mcommit 65e9a43282bac0561a668c7ef78567135d0435b5[m
+Merge: 4c09bb4 18f2382
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sat Sep 24 17:14:37 2022 -0300
+
+    Merge pull request #3 from thalya-codes/feature/criação_corpo_comentári
+    
+    feat: cria a estrutura HTML do corpo do comentário
+
+[33mcommit 18f2382a053b079c83dfa7d20dbcb3415428d9f5[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Sep 24 17:11:49 2022 -0300
+
+    feat: cria a estrutura HTML do corpo do comentário
+
+[33mcommit 5b1c9a8f4ef1a693266ec200964cff328f4c496e[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Merge: c6c870a f427440
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Sat Sep 24 17:05:43 2022 -0300
+
+    Merge pull request #2 from thalya-codes/feature/criação_cabeçalho_comentário
+    
+    feat: cria estrutura HTML do cabeçalho do comentário e habilita a utilização de svg no typescript
+
+[33mcommit f4274404165ea4d69bf3f45f248e1926312d98ea[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Sat Sep 24 17:01:36 2022 -0300
+
+    feat: cria estrutura HTML do cabeçalho do comentário e habilita a utilização de svg no typescript
+
+[33mcommit c6c870ad03639619e40ca450d9721dcf50828edd[m
+Merge: b10ef3e 4c09bb4
+Author: Thalya Stéffany <87552041+thalya-codes@users.noreply.github.com>
+Date:   Wed Sep 21 20:20:37 2022 -0300
+
+    Merge pull request #1 from thalya-codes/develop
+    
+    chore: instalação dos pacotes node sass , types node sass e bootstrap
+
+[33mcommit 4c09bb479f5ea512b9e5cca93beea249fcf53bb3[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Wed Sep 21 20:16:33 2022 -0300
+
+    chore: instalação dos pacotes node sass e types node sass
+
+[33mcommit b10ef3e97e0e4e77dc140e8bb55ab8b2e70ad571[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Wed Sep 21 17:04:56 2022 -0300
+
+    commit inicial
+
+[33mcommit f7a76884038b060a1cb647f21eed719e205c4ec5[m
+Author: Thalya Stéffany <thalyacoiimbra@gmail.com>
+Date:   Wed Sep 21 16:54:40 2022 -0300
+
+    Initialize project using Create React App
