@@ -3,5 +3,10 @@ import IUserInfo from "./IUserInfo";
 export default interface IHeaderComment extends IUserInfo {
     id: string;
     createdAt: string;
-    isTheAuthor: boolean;  
+    isTheAuthor: boolean;
+    deleteCommentInfos: {
+        id: number;
+        isReply: boolean;
+        deleteCommentFunc: (id: number, isReply: boolean) => void
+    }; 
 }

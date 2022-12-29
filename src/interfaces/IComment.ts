@@ -35,4 +35,5 @@ export interface ICommentsData   {
 export interface IProps {
     id: string;
     comments: ICommentsData[];
+    deleteComment: (id:number, isReply: boolean) => void;
 };

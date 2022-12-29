@@ -34,7 +34,10 @@ export default function HeaderComment (props: IHeaderComment) {    ;
                             text="Delete"
                             typeAction='delete'
                             hasIcon= "true"  
-                            onClickCustomFunc={() => alert('delete button')}            
+                            onClickCustomFunc={() => {
+                                const { id, isReply, deleteCommentFunc  } = props.deleteCommentInfos
+                                deleteCommentFunc(id, isReply);
+                            }}            
                         />
                     </>
                     :
