@@ -3,7 +3,7 @@ import HeaderComment from "components/HeaderComment/HeaderComment";
 import { ICommentsData, IProps } from "interfaces/IComment";
 import { useState } from "react";
 
-export default function Comment({ comments, id }: IProps) {
+export default function Comment({ comments, id, deleteComment }: IProps) {
   const [counter, setCounter] = useState(0);
 
   const sumScore = (id: number, isReply: boolean) => {
@@ -69,6 +69,11 @@ export default function Comment({ comments, id }: IProps) {
             altText=""
             isTheAuthor={data.user.username === "juliusomo" && true}
             createdAt={data.createdAt}
+            deleteCommentInfos={{
+              id: data.id,
+              deleteCommentFunc:deleteComment,              
+              isReply: isReply
+            }}
           />
 
           <div className="mt-3 comment__body">
