@@ -1,10 +1,17 @@
 import './style.scss';
 import Button from '../Button/Button';
+import ModalDeleteComment from 'components/ModalDeleteComment';
 
 import UserInfo from "../UserInfo/UserInfo";
 import IHeaderComment from "../../interfaces/IHeaderComment";
+import { useState } from 'react';
 
-export default function HeaderComment (props: IHeaderComment) {    ;
+export default function HeaderComment (props: IHeaderComment) {    
+    const [show, setShow] = useState(false);
+
+    const handleClose = (): void => setShow(false);
+    const handleShow = (): void => setShow(true);
+
     
     return (
         <div className="d-flex justify-content-between header-comment" >
@@ -29,16 +36,18 @@ export default function HeaderComment (props: IHeaderComment) {    ;
                             hasIcon= "true" 
                             onClickCustomFunc={() => alert('edit button')}             
                         />
+                        <ModalDeleteComment 
+                            handleClose={handleClose}
+                            show={show}
+                            deleteCommentInfos={props.deleteCommentInfos}
+                        />
                         <Button
                             id={`delete-button-header-comment--${props.id}`}
                             text="Delete"
                             typeAction='delete'
                             hasIcon= "true"  
-                            onClickCustomFunc={() => {
-                                const { id, isReply, deleteCommentFunc  } = props.deleteCommentInfos
-                                deleteCommentFunc(id, isReply);
-                            }}            
-                        />
+                            onClickCustomFunc={() => handleShow()}            
+                        />        
                     </>
                     :
                     <Button 
