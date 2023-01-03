@@ -32,9 +32,10 @@ export default function HeaderComment (props: IHeaderComment) {
                         <Button
                             id={`edit-button-header-comment--${props.id}`}
                             text="Edit"
-                            typeAction='edit'
-                            hasIcon= "true" 
-                            onClickCustomFunc={() => alert('edit button')}             
+                            variant='primary'
+                            hasIcon= "true"
+                            iconName='pencil' 
+                            onClick={() => alert('edit button')}             
                         />
                         <ModalDeleteComment 
                             handleClose={handleClose}
@@ -44,18 +45,20 @@ export default function HeaderComment (props: IHeaderComment) {
                         <Button
                             id={`delete-button-header-comment--${props.id}`}
                             text="Delete"
-                            typeAction='delete'
+                            variant='danger'
                             hasIcon= "true"  
-                            onClickCustomFunc={() => handleShow()}            
+                            iconName='garbage'
+                            onClick={() => handleShow()}            
                         />        
                     </>
                     :
                     <Button 
                         id={`reply-button-header-comment--${props.id}`}
                         text="Reply"
-                        typeAction='reply'
+                        variant='primary'
                         hasIcon='true'
-                        onClickCustomFunc={() => alert('reply button')}      
+                        iconName='arrow'
+                        onClick={() => alert('reply button')}      
                     />
                     
                 }

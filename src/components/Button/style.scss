@@ -1,45 +1,44 @@
 @import '../../global/variables.scss';
 
 .button {
-    border: none !important;
-    
-    &--withBackgroundColor {
-        width: 100px !important;
-        height:  44px;
 
-        padding: 10px !important;
+	&--primary {
+		&.button--with-background {
+			background-color: $moderate-blue !important;
+		}
 
-        color: #fff !important;
-        
-        &.button-backgroundDefault {
-            background-color: $moderate-blue !important;
-        }
-        
-        &.button-backgroundDanger {
-            background-color: $red !important;
-        }
-        
-        &.button-backgroundCancel {
-            background-color: $grayish-blue !important;    
-        }
+		&.button--with-icon {
+			color: $moderate-blue !important;
+		}
+	}
 
-        span {
-            width: 100%;
-        }
-    }
+	&--secondary {
+		&.button--with-background {
+			background-color: $grayish-blue !important;
+		}
+	}
 
-    &--withIcon {
-        .button__text-reply {
-            color:  $moderate-blue !important;
-        }
+	&--danger {
+		&.button--with-background {
+			background-color: $red !important;
+		}
 
-        .button__text-delete {
-            color:   $red !important;
-        }
-    }
+		&.button--with-icon {
+			color: $red !important;
+		}
+	}
 
+	&--with-background {
+		border: none !important;
 
-    &:hover {
-        opacity: .5;
-    }
+		width: 100px !important;
+		height: 44px;
+
+		padding: 10px !important;
+		color: #fff !important;
+	}
+
+	&:hover {
+		opacity: .5;
+	}
 }

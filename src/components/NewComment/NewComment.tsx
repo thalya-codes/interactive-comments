@@ -33,9 +33,9 @@ export default function NewComment(props: INewComment) {
                 id={ `btn-new-comment--${ btnTypeAction }-${ id }` }
                 text={ btnText }
                 hasBackgroundColor='true'
-                typeAction={ btnTypeAction }
+                variant='primary'
                 textIsUppercase='true'
-                onClickCustomFunc={ () => getTextareaValue()}
+                onClick={ () => getTextareaValue()}
             />
         </div>
     );

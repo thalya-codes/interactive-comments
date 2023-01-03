@@ -2,58 +2,39 @@ import './style.scss';
 
 import IButton from "../../interfaces/IButton";
 
-import IconReply from'../../images/icon-reply.svg' ;
-import IconEdit from'../../images/icon-edit.svg' ;
-import IconDelete from'../../images/icon-delete.svg' ;
+import ArrowIcon from'../../images/icon-reply.svg' ;
+import PencilIcon from'../../images/icon-edit.svg' ;
+import GarbageIcon from'../../images/icon-delete.svg' ;
 
-export default function Button(props: IButton) {
-    const { id, text, typeAction, hasIcon, hasBackgroundColor , textIsUppercase, onClickCustomFunc }:IButton = props; 
+export default function Button({ 
+	id, text, hasIcon, 
+	hasBackgroundColor , 
+	textIsUppercase, onClick, variant, iconName
+}: IButton) {
  
-    const selectButtonBackround = (): string => {
-        switch (hasBackgroundColor && typeAction) {
-            case 'delete':
-                return 'button-backgroundDanger'; 
-            case 'cancel': 
-                return 'button-backgroundCancel'
-            default: 
-                return 'button-backgroundDefault';            
-        };
-    };
-
-    const selectButtonIcon = (): string => {
-        switch (hasIcon && typeAction) {
-            case 'reply': 
-                return IconReply;
-            case 'edit': 
-                return IconEdit;
-            case 'delete': 
-                return IconDelete;
-
-            default: 
-                return '';
-        };
-    };
+    function selectButtonIcon(): string {
+			if (iconName === 'arrow')
+					return ArrowIcon;
+			if (iconName === 'pencil')
+					return PencilIcon;
+			return GarbageIcon;
+    }
 
     return (
-        <button 
-            id={ id } 
-            className= {`
-                btn fw-bolder d-flex align-items-center button 
-                ${ hasBackgroundColor ? 'button--withBackgroundColor' : '' }
-                ${ hasIcon ? 'button--withIcon' : '' }
-                ${ selectButtonBackround() }
-                ${ textIsUppercase ? 'text-uppercase' : '' }
-            `}
-            onClick={() => onClickCustomFunc?.()}
-        >
+			<button 
+				id={ id } 
+				className= {`
+						button--${variant || 'light'}
+						btn fw-bolder d-flex align-items-center justify-content-center  button 
+						${ hasIcon ? 'button--with-icon' : '' }
+						${hasBackgroundColor ? 'button--with-background' :  ''}
+						${ textIsUppercase ? 'text-uppercase' : '' }
+				`}
+				onClick={() => onClick?.()}
+			>
+				{ iconName && <img className='me-2' src={ selectButtonIcon() } alt=''/> }
 
-            { hasIcon && <img className='me-2' src={ selectButtonIcon() } alt=''/> }
-
-            <span className={
-                ( typeAction === 'reply' || typeAction === 'edit'  ?  'button__text-reply': 
-                    ( typeAction === 'delete' ?  'button__text-delete': '' ) 
-                )
-            }>{ text }</span> 
-        </button>       
+				<span>{ text }</span> 					
+			</button>       
     )
 }
