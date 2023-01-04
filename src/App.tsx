@@ -1,13 +1,12 @@
 import './global/style.scss';
 
-import  Comment  from "./components/Comment/Comment";
-import NewComment from './components/NewComment/NewComment';
+import  Comment  from "./components/Comment";
+import NewComment from './components/NewComment';
 import { ICommentsData, IData } from 'interfaces/IComment';
 import { useEffect, useState } from 'react';
-import { json } from 'stream/consumers';
 
 function App(){
-  const data: IData = require('./data.json')
+  const data: IData = require('./data')
   const [comments, setComments] = useState<ICommentsData[]>(data.comments);
   
   useEffect(() => {
@@ -74,11 +73,11 @@ function App(){
           />
       
           <NewComment 
-            id='novo-comentario--2'
+            id='new-comment'
             btnText='send'
-            btnTypeAction='send'
+            btnVariant='send'
             picture={ require(`${ data.currentUser.image.png }`) }
-            altText=''
+            altText='Comment author avatar'
             addNewComment={ addNewComment }
           />    
         

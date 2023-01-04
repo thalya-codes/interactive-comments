@@ -7,7 +7,7 @@ export default interface IButton {
     iconName?: 'arrow' | 'garbage' | 'pencil';
     hasIcon?:string;
     
-    hasBackgroundColor?: string;
-    textIsUppercase?: string;
+    hasBackgroundColor?: true;
+    textIsUppercase?: boolean;
     onClick?: Function;
 }

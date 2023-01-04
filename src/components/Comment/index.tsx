@@ -1,16 +1,16 @@
 import "./style.scss";
-import HeaderComment from "components/HeaderComment/HeaderComment";
+import HeaderComment from "components/HeaderComment";
 import { ICommentsData, IProps } from "interfaces/IComment";
 import { useState } from "react";
 
 export default function Comment({ comments, id, deleteComment }: IProps) {
   const [counter, setCounter] = useState(0);
 
-  const sumScore = (id: number, isReply: boolean) => {
+  const incrementScore = (id: number, isReply: boolean) => {
  
     if (isReply) {
-      comments.forEach((comentario: ICommentsData): void =>
-        comentario.replies.forEach((reply: ICommentsData): void => {
+      comments.forEach((comment: ICommentsData): void =>
+        comment.replies.forEach((reply: ICommentsData): void => {
           reply.id === id && setCounter(reply.score++);
         })
       );
@@ -22,11 +22,11 @@ export default function Comment({ comments, id, deleteComment }: IProps) {
     }
   };
 
-  const substractScore = (id: number, isReply: boolean) => {
+  const decrementScore = (id: number, isReply: boolean) => {
 
     if (isReply) {
-      comments.forEach((comentario: ICommentsData): void =>
-        comentario.replies.forEach((reply: ICommentsData): void => {
+      comments.forEach((comment: ICommentsData): void =>
+        comment.replies.forEach((reply: ICommentsData): void => {
           reply.id === id && reply.score > 0 && setCounter(reply.score--);
         })
       );
@@ -48,20 +48,20 @@ export default function Comment({ comments, id, deleteComment }: IProps) {
         <div className="d-flex flex-column align-items-center fw-bold comment__score">
           <button
             className="comment__score-button fw-bold btn"
-            onClick={() => sumScore(data.id, isReply)}
+            onClick={() => incrementScore(data.id, isReply)}
           >
             +
           </button>
           <span className="comment__score-number"> {data.score} </span>
           <button
             className="comment__score-button fw-bold btn"
-            onClick={() => substractScore(data.id, isReply)}
+            onClick={() => decrementScore(data.id, isReply)}
           >
             -
           </button>
         </div>
 
-        <div className="d-flex flex-column comment__header-and-body">
+        <div className="d-flex flex-column w-100">
           <HeaderComment
             id={`header-comment--${data.id}`}
             username={data.user.username}

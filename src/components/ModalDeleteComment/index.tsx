@@ -1,8 +1,12 @@
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import Button from '../Button';
 import IProps from 'interfaces/IModalDeleteComment';
 
-export default function ModalDeleteComment({ handleClose, show, deleteCommentInfos }: IProps) {
+export default function ModalDeleteComment({ 
+  show,
+  handleClose,    
+  deleteCommentInfos 
+}: IProps) {
   const { id, isReply, deleteCommentFunc  } = deleteCommentInfos;
 
   return (
@@ -25,12 +29,25 @@ export default function ModalDeleteComment({ handleClose, show, deleteCommentInf
 
         <Modal.Footer>
           
-          <Button variant="secondary" onClick={(): void => handleClose()}>NO, CANCEL</Button>  
+          <Button 
+            id='button--cancel-action'
+            variant="secondary"
+            text='No, Cancel'
+            textIsUppercase={true}
+            hasBackgroundColor={true}
+            onClick={(): void => handleClose()}
+          />  
 
-          <Button variant="danger" onClick={(): void => {
+          <Button 
+            id="button--confirm-action"
+            variant="danger" 
+            text='Yes, delete'
+            textIsUppercase={true}
+            hasBackgroundColor={true}
+            onClick={(): void => {
             deleteCommentFunc(id, isReply);
             handleClose();
-          }}>YES, DELETE</Button>
+          }} />
 
         </Modal.Footer>
 

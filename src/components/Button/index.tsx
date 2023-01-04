@@ -19,7 +19,7 @@ export default function Button({
 					return PencilIcon;
 			return GarbageIcon;
     }
-
+		
     return (
 			<button 
 				id={ id } 
@@ -34,7 +34,7 @@ export default function Button({
 			>
 				{ iconName && <img className='me-2' src={ selectButtonIcon() } alt=''/> }
 
-				<span>{ text }</span> 					
+				{ text }			
 			</button>       
     )
 }

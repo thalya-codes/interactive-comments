@@ -1,36 +1,39 @@
 import './style.scss';
-import Button from '../Button/Button';
+import Button from '../Button';
 import ModalDeleteComment from 'components/ModalDeleteComment';
 
-import UserInfo from "../UserInfo/UserInfo";
+import UserInfo from "../UserInfo";
 import IHeaderComment from "../../interfaces/IHeaderComment";
 import { useState } from 'react';
 
-export default function HeaderComment (props: IHeaderComment) {    
+export default function HeaderComment ({
+    id, username, picture,
+    altText, createdAt, isTheAuthor,
+    deleteCommentInfos
+}: IHeaderComment) {    
     const [show, setShow] = useState(false);
 
     const handleClose = (): void => setShow(false);
     const handleShow = (): void => setShow(true);
-
     
     return (
         <div className="d-flex justify-content-between header-comment" >
 
             <div className=" d-flex justify-content-between align-items-baseline header-comment__userInfo-date">
                 <UserInfo 
-                    username={ props.username } 
-                    picture={ props.picture } 
-                    altText="" 
-                    isTheAuthor={ props.isTheAuthor }
+                    username={username} 
+                    picture={picture} 
+                    altText={altText} 
+                    isTheAuthor={isTheAuthor}
                 />
-                <span className="text-secondary header-comment__createdAt">{ props.createdAt }</span> 
+                <span className="text-secondary header-comment__createdAt">{createdAt}</span> 
             </div>
 
             <div className='d-flex d-flex align-items-center'>
-                {props.isTheAuthor ?
+                {isTheAuthor ?
                     <>
                         <Button
-                            id={`edit-button-header-comment--${props.id}`}
+                            id={`edit-button-header-comment--${id}`}
                             text="Edit"
                             variant='primary'
                             hasIcon= "true"
@@ -40,10 +43,10 @@ export default function HeaderComment (props: IHeaderComment) {
                         <ModalDeleteComment 
                             handleClose={handleClose}
                             show={show}
-                            deleteCommentInfos={props.deleteCommentInfos}
+                            deleteCommentInfos={deleteCommentInfos}
                         />
                         <Button
-                            id={`delete-button-header-comment--${props.id}`}
+                            id={`delete-button-header-comment--${id}`}
                             text="Delete"
                             variant='danger'
                             hasIcon= "true"  
@@ -53,7 +56,7 @@ export default function HeaderComment (props: IHeaderComment) {
                     </>
                     :
                     <Button 
-                        id={`reply-button-header-comment--${props.id}`}
+                        id={`reply-button-header-comment--${id}`}
                         text="Reply"
                         variant='primary'
                         hasIcon='true'
