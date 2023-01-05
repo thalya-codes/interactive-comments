@@ -12,7 +12,7 @@ export interface IData {
     comments: ICommentsData[];
 };
 
-export interface ICommentsData   {
+export interface ICommentsData {
     id: number;
     content: string;
     createdAt: string;
@@ -27,13 +27,13 @@ export interface ICommentsData   {
         username: string;
     };  
 
-    replies: [];
+    replies: ICommentsData[];
 
     replyingTo?: string;
 };
 
 export interface IProps {
-    id: string;
-    comments: ICommentsData[];
+    comment: ICommentsData;
     deleteComment: (id:number, isReply: boolean) => void;
+    isReply: boolean;    
 };
