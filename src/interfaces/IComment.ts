@@ -1,3 +1,4 @@
+import React from 'react';
 
 export interface IData {
     currentUser: {
@@ -27,13 +28,17 @@ export interface ICommentsData {
         username: string;
     };  
 
-    replies: ICommentsData[];
+    replies: [];
 
     replyingTo?: string;
 };
 
+export interface IRepliesData {
+
+}
 export interface IProps {
+    comments: ICommentsData[];
     comment: ICommentsData;
-    deleteComment: (id:number, isReply: boolean) => void;
-    isReply: boolean;    
+    isReply: boolean; 
+    setComments: React.Dispatch<React.SetStateAction<ICommentsData[]>>
 };

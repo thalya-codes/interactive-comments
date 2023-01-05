@@ -41,27 +41,6 @@ function App() {
     localStorage.setItem("comments", JSON.stringify([...comments, newComment]));
   }
 
-  function deleteComment(id: number, isReply: boolean): void {
-    let findMatchedComment: number;
-
-    if (isReply) {
-      comments.forEach(({ replies }: ICommentsData): void => {
-        findMatchedComment = replies.findIndex(
-          (reply: ICommentsData) => reply.id === id
-        );
-        replies.splice(findMatchedComment, 1);
-      });
-    } else {
-      findMatchedComment = comments.findIndex(
-        (comment: ICommentsData) => comment.id === id
-      );
-      comments.splice(findMatchedComment, 1);
-    }
-
-    localStorage.setItem("comments", JSON.stringify(comments));
-    setComments(JSON.parse(localStorage.getItem("comments") || ""));
-  }
-
   return (
     <div className="App">
       {data !== undefined && (
@@ -69,16 +48,18 @@ function App() {
           {comments.map((comment: ICommentsData): JSX.Element => (
 						<div>
 							<Comment
+								comments={comments}
 								comment={comment}
-								deleteComment={deleteComment}
 								isReply={false}
+								setComments={setComments}
 							/>
 
 							{comment.replies.map((reply: ICommentsData): JSX.Element => (
 								<Comment
+									comments={comments}
 									comment={reply}
-									deleteComment={deleteComment}
 									isReply={true}
+									setComments={setComments}
 								/>
 							))}
 						</div>

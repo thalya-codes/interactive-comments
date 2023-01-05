@@ -1,12 +1,13 @@
 import "./style.scss";
 import HeaderComment from "components/HeaderComment";
-import { IProps } from "interfaces/IComment";
+import { ICommentsData, IProps } from "interfaces/IComment";
 import { useState } from "react";
 
 export default function Comment({
+  comments,
   comment,
-  deleteComment,
   isReply,
+  setComments
 }: IProps) {
   const [score, setScore] = useState(comment.score);
 
@@ -14,6 +15,31 @@ export default function Comment({
   const decrementScore = (): void => {
     score > 0 && setScore((prev) => prev - 1);
   };
+
+  const deleteComment = (): void => {
+    let indexComment: number;
+    
+    indexComment = comments.findIndex(
+      (currentComment: ICommentsData) => currentComment.id === comment.id
+    );
+
+    comments.splice(indexComment, 1);
+
+    localStorage.setItem("comments", JSON.stringify(comments));
+    setComments(JSON.parse(localStorage.getItem("comments") || ""));
+  }
+
+  const deleteReply = (): void => {
+    let indexReply: number;
+
+    comments.forEach(({ replies }: ICommentsData): void => {
+      indexReply = replies.findIndex((reply: ICommentsData) => reply.id === comment.id);
+      replies.splice(indexReply, 1);
+    }); 
+
+    localStorage.setItem("comments", JSON.stringify(comments));
+    setComments(JSON.parse(localStorage.getItem("comments") || ""));
+  }
 
   return (
     <div className={`comment ${ isReply ? "comment--replies" : "" } d-flex justify-content-between`}
@@ -46,7 +72,7 @@ export default function Comment({
 
           deleteCommentInfos={{
             id: comment.id,
-            deleteCommentFunc: deleteComment,
+            deleteCommentFunc: isReply ? deleteReply :deleteComment,
             isReply: isReply,
           }}
         />
