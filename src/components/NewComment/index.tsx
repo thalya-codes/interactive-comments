@@ -1,8 +1,8 @@
 import './style.scss';
-
-import Avatar from "../Avatar";
-import Button from "../Button";
 import { useState } from 'react';
+
+import Button from "../Button";
+import Avatar from "../Avatar";
 import IProps from '../../interfaces/INewComment';
 import { ICommentsData } from 'interfaces/IComment';
 
@@ -38,7 +38,7 @@ export default function NewComment({
     }
 
     return (
-        <div id={`new-comment`} className='mb-5'>
+        <div id="new-comment" className='mb-5'>
             <div className='new-comment d-flex justify-content-between'>
                 <Avatar picture={picture} altText={altText} />
 

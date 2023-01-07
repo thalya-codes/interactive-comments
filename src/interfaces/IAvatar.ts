@@ -1,4 +1,4 @@
-export default interface IAvatar {
+export default interface IProps {
     picture: string;
     altText: string;
 }
