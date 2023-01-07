@@ -18,29 +18,6 @@ function App() {
     }
   }, []);
 
-  function addNewComment(content: string): void {
-    const currentDate = new Date();
-    const formmatedDate = `${currentDate.getDay()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`;
-
-    const newComment: ICommentsData = {
-      id: Math.floor(Math.random() * 20),
-      user: {
-        image: {
-          png: data.currentUser.image.png,
-        },
-        username: "juliusomo",
-      },
-      createdAt: formmatedDate,
-      content,
-      score: 0,
-      replies: [],
-      replyingTo: "",
-    };
-
-    setComments([...comments, newComment]);
-    localStorage.setItem("comments", JSON.stringify([...comments, newComment]));
-  }
-
   return (
     <div className="App">
       {data !== undefined && (
@@ -66,12 +43,12 @@ function App() {
 					))}
 
           <NewComment
-            id="new-comment"
             btnText="send"
-            btnVariant="send"
             picture={require(`${data.currentUser.image.png}`)}
             altText="Comment author avatar"
-            addNewComment={addNewComment}
+            data={data}
+            comments={comments}
+            setComments={setComments}
           />
         </>
       )}
