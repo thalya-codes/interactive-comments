@@ -1,3 +1,4 @@
+import React from 'react';
 
 export interface IData {
     currentUser: {
@@ -12,7 +13,7 @@ export interface IData {
     comments: ICommentsData[];
 };
 
-export interface ICommentsData   {
+export interface ICommentsData {
     id: number;
     content: string;
     createdAt: string;
@@ -32,8 +33,12 @@ export interface ICommentsData   {
     replyingTo?: string;
 };
 
+export interface IRepliesData {
+
+}
 export interface IProps {
-    id: string;
     comments: ICommentsData[];
-    deleteComment: (id:number, isReply: boolean) => void;
+    comment: ICommentsData;
+    isReply: boolean; 
+    setComments: React.Dispatch<React.SetStateAction<ICommentsData[]>>
 };

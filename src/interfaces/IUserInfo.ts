@@ -1,4 +1,4 @@
-export default interface IUserInfo {
+export default interface IProps {
     username: string;
     picture: string;
     altText: string;

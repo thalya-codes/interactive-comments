@@ -2,9 +2,12 @@
 export default interface IButton {
     id: string;
     text: string;
-    typeAction: 'send' | 'update' | 'edit' | 'delete' | 'reply' | 'cancel';
+
+    variant?: 'light' | 'primary' | 'secondary' | 'danger';
+    iconName?: 'arrow' | 'garbage' | 'pencil';
     hasIcon?:string;
-    hasBackgroundColor?: string;
-    textIsUppercase?: string;
-    onClickCustomFunc?: Function;
+    
+    hasBackgroundColor?: true;
+    textIsUppercase?: boolean;
+    onClick?: Function;
 }

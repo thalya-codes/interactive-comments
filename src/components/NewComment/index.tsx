@@ -1,0 +1,64 @@
+import './style.scss';
+import { useState } from 'react';
+
+import Button from "../Button";
+import Avatar from "../Avatar";
+import IProps from '../../interfaces/INewComment';
+import { ICommentsData } from 'interfaces/IComment';
+
+export default function NewComment({
+    picture,altText,
+    btnText, comments, 
+    setComments, data
+}: IProps) {
+    const [textareaValue, setTextAreaValue] = useState<string>('');
+    const textarea = document.getElementById("new-comment__textarea") as HTMLTextAreaElement;
+    
+    const addNewComment = (content: string): void => {    
+        const currentDate = new Date();
+        const formmatedDate = `${currentDate.getDay()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+
+        const newComment: ICommentsData = {
+            id: Math.floor(Math.random() * 20),
+            user: {
+            image: {
+                png: data.currentUser.image.png,
+            },
+            username: "juliusomo",
+            },
+            createdAt: formmatedDate,
+            content,
+            score: 0,
+            replies: [],
+            replyingTo: "",
+        };
+
+        setComments([...comments, newComment]);
+        localStorage.setItem("comments", JSON.stringify([...comments, newComment]));       
+    }
+
+    return (
+        <div id="new-comment" className='mb-5'>
+            <div className='new-comment d-flex justify-content-between'>
+                <Avatar picture={picture} altText={altText} />
+
+                <textarea 
+                    id="new-comment__textarea"
+                    className="form-control w-75 text-secondary"
+                    rows={3} 
+                    placeholder="Add a new comment..."
+                    onChange={() => setTextAreaValue(textarea.value)}
+                />
+
+                <Button 
+                    id="new-comment__btn"
+                    text={btnText}
+                    hasBackgroundColor={true}
+                    variant='primary'
+                    textIsUppercase={true}
+                    onClick={() =>  addNewComment(textareaValue)}
+                />
+            </div>
+        </div>
+    );
+};
