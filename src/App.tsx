@@ -43,6 +43,7 @@ function App() {
 					))}
 
           <NewComment
+            id='new-comment--comment'
             btnText="send"
             picture={require(`${data.currentUser.image.png}`)}
             altText="Comment author avatar"

@@ -1,5 +1,5 @@
 import "./style.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Button from "../Button";
 import Avatar from "../Avatar";
@@ -7,17 +7,19 @@ import IProps from "../../interfaces/INewComment";
 import { ICommentsData } from "interfaces/IComment";
 
 export default function NewComment({
+  id,
   picture,
   altText,
   btnText,
   comments,
   setComments,
+  setEditing,
   data,
 }: IProps) {
+
   const [textareaValue, setTextAreaValue] = useState<string>("");
-  const textarea = document.getElementById(
-    "new-comment__textarea"
-  ) as HTMLTextAreaElement;
+
+  const refTextarea = useRef<HTMLTextAreaElement>(null);
   const [textareaIsEmpty, setTextareaIsEmpty] = useState<boolean>();
 
   const addNewComment = (content: string): void => {
@@ -46,19 +48,29 @@ export default function NewComment({
   };
 
   const handleOnClick = (): void => {
+    const textarea = refTextarea.current;
+    
+    if (textarea === null) return;
+
     if (textarea.value === "") {
       setTextareaIsEmpty(true);
       return;
     }
 
     setTextareaIsEmpty(false);
-    addNewComment(textareaValue);
+
+    if (setEditing) {
+      setEditing(false);
+    } else {
+      addNewComment(textareaValue);     
+    }
+
     textarea.value = "";
   };
 
   return (
     <div
-      id="new-comment"
+      id={id}
       className={`new-comment ${
         textareaIsEmpty ? "new-comment--with-error" : ""
       } mb-5`}
@@ -67,15 +79,16 @@ export default function NewComment({
         <Avatar picture={picture} altText={altText} />
 
         <textarea
-          id="new-comment__textarea"
+          id={`${id}__textarea`}
           className={`form-control w-75 text-secondary ${textareaIsEmpty ? "border-danger" : ""}`}
           rows={3}
+          ref={refTextarea}
           placeholder="Add a new comment..."
-          onChange={() => setTextAreaValue(textarea.value)}
+          onChange={() => refTextarea.current !== null &&  setTextAreaValue(refTextarea.current.value)}
         />
 
         <Button
-          id="new-comment__btn"
+          id={`id__btn`}
           text={btnText}
           hasBackgroundColor={true}
           variant="primary"
