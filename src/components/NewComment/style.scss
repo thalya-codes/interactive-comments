@@ -1,4 +1,18 @@
+@import '../../global/variables.scss';
+
 .new-comment {
-    width: 50vw;  
-    margin-top: 60px;
+	width: 50vw;
+	margin-top: 60px;
+	
+	&--with-error {
+		.form-control::-webkit-input-placeholder {
+			color: $red;
+		}
+		
+		.new-comment__error-message {
+			letter-spacing: 2px;
+			margin-left: 8%;
+		}
+	}
 }
+
