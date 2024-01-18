@@ -15,6 +15,7 @@ export default {
         'grayish-blue': 'hsl(211, 10%, 45%)',
         'light-gray': 'hsl(223, 19%, 93%)',
         'very-light-gray': 'hsl(228, 33%, 97%)',
+        'white': 'hsl(0, 0%, 100%)',
       },
     },
     fontFamily: {
