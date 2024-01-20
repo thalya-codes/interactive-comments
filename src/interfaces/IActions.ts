@@ -8,8 +8,5 @@ export interface ICommentActionContentPayload {
 
 export interface ICommentActionIdPayload {
   type: string;
-  payload: {
-    id: string;
-    content: string;
-  };
+  payload: { id: string; };
 }
