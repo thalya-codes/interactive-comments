@@ -11,22 +11,6 @@ export default {
   comments: [
     {
       id: uuid(),
-      content:"first",
-      createdAt: '2 days ago',
-      score: 0,
-      isDeleting: false,
-      isEditing: false,
-      replyingTo: 'ramsesmiron',
-      user: {
-        image: {
-          png: '../assets/avatars/juliusomo.png',
-          webp: '../assets/avatars/juliusomo.webp',
-        },
-        username: 'juliusomo',
-      },
-    },
-    {
-      id: uuid(),
       content:
         "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
       createdAt: '1 month ago',
