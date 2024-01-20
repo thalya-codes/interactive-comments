@@ -9,6 +9,8 @@ export function useTimeElapsed({ createdDate }: { createdDate: string }): string
     
     setTimeElapsed(moment(createdDateInMilli).fromNow());
   }, [createdDate]);
-
-  return timeElapsed;
+  
+  return timeElapsed.includes("minutes") || timeElapsed.includes("seconds") 
+    ? timeElapsed.substring(2) 
+    : timeElapsed;
 }
