@@ -1,7 +1,7 @@
 import { ICommentDataBase } from "@/interfaces/IComments";
-import { IFindComentByID } from "@/interfaces/IFindCommentById";
+import { IFindCommentByID  } from "@/interfaces/IFindCommentById";
 
-export function findCommentById({ id, state }: IFindComentByID) {
+export function findCommentById({ id, state }: IFindCommentByID ) {
   const foundedComment = state.find(
     (comment: ICommentDataBase) => comment.id === id
   );

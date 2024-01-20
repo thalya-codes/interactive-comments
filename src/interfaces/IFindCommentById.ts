@@ -1,6 +1,6 @@
 import { ICommentDataBase } from "./IComments";
 
-export interface IFindComentByID {
+export interface IFindCommentByID  {
     id: string;
     state: ICommentDataBase[];
 }
