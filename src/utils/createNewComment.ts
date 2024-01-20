@@ -1,4 +1,7 @@
-import { ICommentDataBase, ICreateNewComment } from '@/interfaces/IComments';
+import {
+  ICommentDataBase,
+  ICreateNewComment,
+} from '@/interfaces/IComments';
 import { v4 as uuid } from 'uuid';
 
 export function createNewComment({
@@ -8,7 +11,7 @@ export function createNewComment({
   return {
     id: uuid(),
     content,
-    createdAt: new Date().toString(),
+    createdAt: new Date().toISOString(),
     score: 0,
     replyingTo,
     hasAlreadyVoted: false,
