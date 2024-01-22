@@ -8,7 +8,7 @@ export default {
           'moderate-blue': 'hsl(238, 40%, 52%)',
           'soft-red': 'hsl(358, 79%, 66%)',
           'light-grayish-blue': 'hsl(239, 57%, 85%)',
-          'extra-light-grayish-blue': 'hsl(240, 3%, 98%)',
+          'extra-light-grayish-blue': 'hsl(240, 57%, 93%)',
           'pale-red': 'hsl(357, 100%, 86%)',
         },
         neutral: {
