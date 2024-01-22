@@ -3,11 +3,17 @@ import { Button } from '../Button';
 import { addVote, removeVote } from '@/store/slice';
 import { IVoteControls } from '@/interfaces/IVoteControls';
 
-export function VoteControls({ id, score }: IVoteControls) {
+export function VoteControls({
+  id,
+  score,
+  className = '',
+}: IVoteControls) {
   const dispatch = useDispatch();
 
   return (
-    <div className='flex flex-col items-center w-12 p-2 bg-primary-extra-light-grayish-blue shadow-md rounded-md font-medium'>
+    <div
+      className={`flex flex-col items-center w-14 p-2 box-border bg-primary-extra-light-grayish-blue shadow-md rounded-md font-medium ${className}`}
+    >
       <Button
         variants='light-grayish-blue'
         className='hover:text-primary-moderate-blue'
