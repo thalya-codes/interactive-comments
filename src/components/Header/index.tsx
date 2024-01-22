@@ -3,7 +3,7 @@ import { Avatar } from '@/components/Avatar';
 import { IHeader } from '@/interfaces/IHeader';
 
 export function Header({
-  usermame,
+  username,
   avatar,
   createdAt,
   isAuthor = false,
@@ -16,10 +16,10 @@ export function Header({
   return (
     <div className='flex justify-between'>
       <div className='flex gap-3 items-center text-sm'>
-        <Avatar src={avatar} alt={`Avatar ${usermame}`} />
+        <Avatar src={avatar} alt={`Avatar ${username}`} />
 
         <p className='font-medium text-neutral-dark-blue '>
-          {usermame}
+          {username}
         </p>
 
         {isAuthor && (
