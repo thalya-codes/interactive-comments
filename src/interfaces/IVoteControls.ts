@@ -1,4 +1,5 @@
-export interface IVoteControls { 
-    id: string;
-    score: number;
+export interface IVoteControls {
+  id: string;
+  score: number;
+  className?: string;
 }
