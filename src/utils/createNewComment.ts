@@ -1,7 +1,7 @@
 import {
   ICommentDataBase,
   ICreateNewComment,
-} from '@/interfaces/IComments';
+} from '@/interfaces/ICommentsData';
 import { v4 as uuid } from 'uuid';
 
 export function createNewComment({

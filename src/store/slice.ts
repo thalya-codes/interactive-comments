@@ -4,7 +4,7 @@ import { createNewComment } from '@/utils/createNewComment';
 import {
   ICommentData,
   ICommentDataBase,
-} from '@/interfaces/IComments';
+} from '@/interfaces/ICommentsData';
 import {
   ICommentActionContentPayload,
   ICommentActionIdPayload,
@@ -23,17 +23,31 @@ export const slice = createSlice({
       });
       state.push(newComment);
     },
-    updateComment(state, { payload: { id, content } }: ICommentActionContentPayload) {
+    updateComment(
+      state,
+      {
+        payload: { id, content },
+      }: ICommentActionContentPayload
+    ) {
       const foundedComment = findCommentById({ id, state });
       foundedComment.content = content;
     },
-    deleteComment(state, { payload: { id } }: ICommentActionIdPayload) {
+    deleteComment(
+      state,
+      { payload: { id } }: ICommentActionIdPayload
+    ) {
       return state.filter((comment) => comment.id !== id);
     },
-    replyComment(state, { payload: { id, content } }: ICommentActionContentPayload) {
+    replyComment(
+      state,
+      {
+        payload: { id, content },
+      }: ICommentActionContentPayload
+    ) {
       const foundedComment = findCommentById({ id, state });
-      const replies = foundedComment.replies as ICommentDataBase[];
-     
+      const replies =
+        foundedComment.replies as ICommentDataBase[];
+
       const newReply = createNewComment({
         content,
         replyingTo: foundedComment.user.username,
