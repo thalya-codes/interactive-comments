@@ -16,7 +16,6 @@ export default {
       createdAt: new Date('2023/12/15').toISOString(),
       score: 12,
       hasAlreadyVoted: false,
-      isEditing: false,
       user: {
         image: {
           png: '../assets/avatars/amyrobson.png',
@@ -33,7 +32,6 @@ export default {
       createdAt: new Date('2024/01/06').toISOString(),
       score: 5,
       hasAlreadyVoted: false,
-      isEditing: false,
       user: {
         image: {
           png: '../assets/avatars/maxblagun.png',
@@ -49,7 +47,6 @@ export default {
           createdAt: new Date('2024/01/13').toISOString(),
           score: 4,
           replyingTo: 'maxblagun',
-          isEditing: false,
           user: {
             image: {
               png: '../assets/avatars/ramsesmiron.png',
@@ -64,8 +61,6 @@ export default {
             "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
           createdAt: new Date('2024/01/18').toISOString(),
           score: 2,
-          isDeleting: false,
-          isEditing: false,
           replyingTo: 'ramsesmiron',
           user: {
             image: {
