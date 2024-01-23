@@ -23,46 +23,23 @@ export const slice = createSlice({
       });
       state.push(newComment);
     },
-    editComment(state, { payload: { id } }: ICommentActionIdPayload) {
-      const foundedComment = findCommentById({ id, state })
-      
-      foundedComment.isEditing = !foundedComment?.isEditing;
-    },
     updateComment(state, { payload: { id, content } }: ICommentActionContentPayload) {
       const foundedComment = findCommentById({ id, state });
-
-      foundedComment.isEditing = false;
       foundedComment.content = content;
     },
     deleteComment(state, { payload: { id } }: ICommentActionIdPayload) {
-      const foundedComment = findCommentById({ id, state });
-      foundedComment.isDeleting = true;
-    },
-    confirmDeleteComment(state, { payload: { id } }: ICommentActionIdPayload) {
-      const foundedComment = findCommentById({ id, state });
-
-      foundedComment.isDeleting = true;
-
       return state.filter((comment) => comment.id !== id);
     },
-    cancelDeleteComment(state, { payload: { id } }: ICommentActionIdPayload) {
-      const foundedComment = findCommentById({ id, state });
-      foundedComment.isDeleting = false;
-    },
-    replyComment(state, { payload: { id } }: ICommentActionIdPayload) {
-      const foundedComment = findCommentById({ id, state });
-      foundedComment.isReplying =
-        !foundedComment.isReplying;
-    },
-    addReply(state, { payload: { id, content } }: ICommentActionContentPayload) {
+    replyComment(state, { payload: { id, content } }: ICommentActionContentPayload) {
       const foundedComment = findCommentById({ id, state });
       const replies = foundedComment.replies as ICommentDataBase[];
+     
       const newReply = createNewComment({
         content,
         replyingTo: foundedComment.user.username,
       });
 
-      foundedComment.isReplying = false;
+      // foundedComment.isReplying = false;
       replies.push(newReply);
     },
     addVote(state, { payload: { id } }) {
@@ -87,13 +64,9 @@ export const slice = createSlice({
 export const reducer = slice.reducer;
 export const {
   addNewComment,
-  editComment,
   updateComment,
   deleteComment,
-  confirmDeleteComment,
-  cancelDeleteComment,
   addVote,
   removeVote,
   replyComment,
-  addReply,
 } = slice.actions;
