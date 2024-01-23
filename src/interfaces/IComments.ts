@@ -10,9 +10,6 @@ export interface ICommentDataBase {
     username: string;
   };
   replies?: ICommentDataBase[] | [],
-  isDeleting?: boolean;
-  isEditing?: boolean;
-  isReplying?: boolean;
   hasAlreadyVoted?: boolean;
 }
 
