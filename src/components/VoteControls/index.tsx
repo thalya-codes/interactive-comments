@@ -12,7 +12,7 @@ export function VoteControls({
 
   return (
     <div
-      className={`flex flex-col items-center w-14 p-2 box-border bg-primary-extra-light-grayish-blue shadow-md rounded-md font-medium ${className}`}
+      className={`flex flex-col justify-center items-center w-10 h-20 px-2 box-border bg-primary-extra-light-grayish-blue shadow-md rounded-md font-medium ${className}`}
     >
       <Button
         variants='light-grayish-blue'
