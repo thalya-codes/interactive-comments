@@ -6,16 +6,17 @@ export function Textarea({
   rows = 4,
   value,
   setValue,
+  className = '',
   ...props
 }: ITextarea) {
   return (
     <textarea
-      className='text-sm text-neutral-grayish-blue p-2 rounded-md border border-slate-200 focus:border-primary-moderate-blue bg-neutral-very-light-gray shadow-sm outline-none transition-all'
+      className={`text-sm text-neutral-grayish-blue p-2 rounded-md border border-slate-200 focus:border-primary-moderate-blue bg-neutral-very-light-gray shadow-sm outline-none transition-all resize-none ${className}`}
       cols={cols}
       rows={rows}
       value={value}
       onChange={({
-        target: { value }
+        target: { value },
       }: ChangeEvent<HTMLTextAreaElement>) =>
         setValue(value)
       }
