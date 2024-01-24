@@ -4,5 +4,5 @@ import { IVoteControls } from './IVoteControls';
 export interface ICommentContainer
   extends IVoteControls,
     Omit<IHeader, 'isAuthor' | 'children'> {
-  content?: string;
+  content: string;
 }
