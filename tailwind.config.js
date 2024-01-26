@@ -13,6 +13,7 @@ export default {
         },
         neutral: {
           'dark-blue': 'hsl(212, 24%, 26%)',
+          'dark-blue-opacity-04': 'hsl(212, 24%, 26%, 0.4)',
           'grayish-blue': 'hsl(211, 10%, 45%)',
           'light-gray': 'hsl(223, 19%, 93%)',
           'very-light-gray': 'hsl(228, 33%, 97%)',
@@ -21,6 +22,12 @@ export default {
       },
       fontFamily: {
         rubik: ['Rubik', 'sans-serif'],
+      },
+      screens: {
+        lg: '1024px',
+        md: { max: '900px' },
+        sm: { max: '600px' },
+        xs: { max: '490px' },
       },
     },
   },
