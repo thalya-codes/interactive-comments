@@ -13,16 +13,11 @@ export function Comment({
   isAuthor,
   setIsReplyingMode,
   setIsEditingMode,
-  setShowModal,
+  onShowModal,
 }: IComment) {
   const handleReplyingMode = (): void => {
     if (!setIsReplyingMode) return;
     setIsReplyingMode((state) => !state);
-  };
-
-  const handleShowModal = (): void => {
-    if (!setShowModal) return;
-    setShowModal(true);
   };
 
   const handleEditingMode = (): void => {
@@ -45,7 +40,7 @@ export function Comment({
             <div className='flex gap-2 self-start'>
               <Button
                 variants='soft-red'
-                onClick={handleShowModal}
+                onClick={onShowModal}
               >
                 Delete
               </Button>
