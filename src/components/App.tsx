@@ -36,7 +36,7 @@ function App() {
                     : ''
                 }
               />
-              {replies && (
+              {/* {replies && (
                 <ul className='ml-14 flex flex-col gap-14'>
                   {replies.map(
                     ({
@@ -63,7 +63,7 @@ function App() {
                     )
                   )}
                 </ul>
-              )}
+              )} */}
             </li>
           )
         )}
