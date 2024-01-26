@@ -45,15 +45,13 @@ export const slice = createSlice({
       }: ICommentActionContentPayload
     ) {
       const foundedComment = findCommentById({ id, state });
-      const replies =
-        foundedComment.replies as ICommentDataBase[];
+      const replies = foundedComment.replies as ICommentDataBase[];
 
       const newReply = createNewComment({
         content,
         replyingTo: foundedComment.user.username,
       });
 
-      // foundedComment.isReplying = false;
       replies.push(newReply);
     },
     addVote(state, { payload: { id } }) {
