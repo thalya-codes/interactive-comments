@@ -8,5 +8,5 @@ export interface IComment
   children: ReactNode;
   setIsReplyingMode?: Dispatch<SetStateAction<boolean>>;
   setIsEditingMode?: Dispatch<SetStateAction<boolean>>;
-  setShowModal?: Dispatch<SetStateAction<boolean>>;
+  onShowModal?: () => void;
 }
