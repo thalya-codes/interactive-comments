@@ -23,7 +23,5 @@ export function createNewComment({
       username: 'juliusomo',
     },
     replies: [],
-    isDeleting: false,
-    isEditing: false,
   };
 }
