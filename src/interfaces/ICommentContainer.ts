@@ -7,4 +7,5 @@ export interface ICommentContainer
     Omit<IHeader, 'isAuthor' | 'children'> {
   content: string;
   commentListRef: RefObject<HTMLUListElement>;
+  parentId?: string;
 }
