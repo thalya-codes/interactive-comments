@@ -11,6 +11,7 @@ import { DeleteConfirmationModal } from '@components/DeleteConfirmationModal';
 
 export function CommentContainer({
   id,
+  parentId,
   content,
   createdAt,
   score,
@@ -35,6 +36,7 @@ export function CommentContainer({
       updateComment({
         id,
         content: editingCommentValue,
+        parentId,
       })
     );
 
@@ -45,6 +47,7 @@ export function CommentContainer({
     dispatch(
       replyComment({
         id,
+        parentId,
         content: replyingCommentValue,
       })
     );
@@ -100,6 +103,7 @@ export function CommentContainer({
       {showModal && (
         <DeleteConfirmationModal
           id={id}
+          parentId={parentId}
           onHideModal={onHideModal}
         />
       )}
