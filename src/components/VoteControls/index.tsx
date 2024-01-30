@@ -5,6 +5,7 @@ import { IVoteControls } from '@/interfaces/IVoteControls';
 
 export function VoteControls({
   id,
+  parentId,
   score,
   className = '',
 }: IVoteControls) {
@@ -17,7 +18,7 @@ export function VoteControls({
       <Button
         variants='light-grayish-blue'
         className='hover:text-primary-moderate-blue'
-        onClick={() => dispatch(addVote({ id }))}
+        onClick={() => dispatch(addVote({ id, parentId }))}
         aria-label='Add vote'
       >
         +
@@ -30,7 +31,9 @@ export function VoteControls({
       <Button
         variants='light-grayish-blue'
         className='hover:text-primary-moderate-blue'
-        onClick={() => dispatch(removeVote({ id }))}
+        onClick={() =>
+          dispatch(removeVote({ id, parentId }))
+        }
         aria-label='Remove vote'
       >
         -
