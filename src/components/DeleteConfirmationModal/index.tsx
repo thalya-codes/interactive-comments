@@ -5,12 +5,13 @@ import { IDeleteConfirmationModal } from '@/interfaces/IDeleteConfirmationModal'
 
 export function DeleteConfirmationModal({
   id,
+  parentId,
   onHideModal,
 }: IDeleteConfirmationModal) {
   const dispatch = useDispatch();
 
   const handleDeleteComment = (): void => {
-    dispatch(deleteComment({ id }));
+    dispatch(deleteComment({ id, parentId }));
     onHideModal();
   };
 
