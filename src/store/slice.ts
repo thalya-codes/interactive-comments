@@ -9,7 +9,8 @@ import {
   ICommentActionContentPayload,
   ICommentActionIdPayload,
 } from '@/interfaces/IActions';
-import { findCommentById } from '@/utils/findCommentById';
+import { findComment } from '@/utils/findComment';
+import { findReply } from '@/utils/findReply';
 
 const { comments }: ICommentData = data;
 
@@ -26,26 +27,58 @@ export const slice = createSlice({
     updateComment(
       state,
       {
-        payload: { id, content },
+        payload: { id, content, parentId },
       }: ICommentActionContentPayload
     ) {
-      const foundedComment = findCommentById({ id, state });
+      const foundedComment = parentId
+        ? findReply<ICommentDataBase>({
+            id,
+            parentId: parentId,
+            state,
+          })
+        : findComment<ICommentDataBase>({
+            id,
+            state,
+          });
+
       foundedComment.content = content;
     },
     deleteComment(
       state,
-      { payload: { id } }: ICommentActionIdPayload
+      { payload: { id, parentId } }: ICommentActionIdPayload
     ) {
-      return state.filter((comment) => comment.id !== id);
+      const commentIndex = findComment<number>({
+        id: parentId || id,
+        state,
+        method: 'findIndex',
+      });
+
+      if (parentId) {
+        const replyIndex = findReply<number>({
+          id,
+          parentId,
+          state,
+          method: 'findIndex',
+        });
+
+        state[commentIndex].replies?.splice(replyIndex, 1);
+      } else {
+        state.splice(commentIndex, 1);
+      }
     },
     replyComment(
       state,
       {
-        payload: { id, content },
+        payload: { id, content, parentId },
       }: ICommentActionContentPayload
     ) {
-      const foundedComment = findCommentById({ id, state });
-      const replies = foundedComment.replies as ICommentDataBase[];
+      const foundedComment = findComment<ICommentDataBase>({
+        id: parentId || id,
+        state,
+      });
+
+      const replies =
+        foundedComment.replies as ICommentDataBase[];
 
       const newReply = createNewComment({
         content,
@@ -54,8 +87,18 @@ export const slice = createSlice({
 
       replies.push(newReply);
     },
-    addVote(state, { payload: { id } }) {
-      const foundedComment = findCommentById({ id, state });
+    //TODO: Implementar reducers abaixo a nível de replies
+    addVote(state, { payload: { id, parentId } }) {
+      const foundedComment = parentId
+        ? findReply<ICommentDataBase>({
+            id,
+            parentId,
+            state,
+          })
+        : findComment<ICommentDataBase>({
+            id,
+            state,
+          });
 
       if (foundedComment.hasAlreadyVoted) return;
 
@@ -63,7 +106,10 @@ export const slice = createSlice({
       foundedComment.score++;
     },
     removeVote(state, { payload: { id } }) {
-      const foundedComment = findCommentById({ id, state });
+      const foundedComment = findComment<ICommentDataBase>({
+        id,
+        state,
+      });
 
       if (!foundedComment.hasAlreadyVoted) return;
 
