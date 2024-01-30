@@ -11,6 +11,7 @@ export function Comment({
   createdAt,
   children,
   isAuthor,
+  parentId,
   setIsReplyingMode,
   setIsEditingMode,
   onShowModal,
@@ -27,7 +28,11 @@ export function Comment({
 
   return (
     <div className='flex gap-3 w-6/12'>
-      <VoteControls id={id} score={score} />
+      <VoteControls
+        id={id}
+        parentId={parentId}
+        score={score}
+      />
 
       <div className='flex flex-col self-center gap-3 w-full'>
         <Header
