@@ -14,16 +14,16 @@ function App() {
       <ul ref={commentListRef}>
         {comments.map(
           ({
-            id,
             content,
             createdAt,
             score,
             user: { image, username },
             replies,
+            ...comment
           }: ICommentDataBase) => (
-            <li key={id}>
+            <li key={comment.id}>
               <CommentContainer
-                id={id}
+                id={comment.id}
                 username={username}
                 content={content}
                 score={score}
@@ -36,7 +36,7 @@ function App() {
                     : ''
                 }
               />
-              {/* {replies && (
+              {replies && (
                 <ul className='ml-14 flex flex-col gap-14'>
                   {replies.map(
                     ({
@@ -52,6 +52,7 @@ function App() {
                       >
                         <CommentContainer
                           id={id}
+                          parentId={comment.id}
                           username={username}
                           content={content}
                           score={score}
@@ -63,7 +64,7 @@ function App() {
                     )
                   )}
                 </ul>
-              )} */}
+              )}
             </li>
           )
         )}
