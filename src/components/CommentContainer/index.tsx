@@ -64,6 +64,7 @@ export function CommentContainer({
         username={username}
         score={score}
         id={id}
+        parentId={parentId}
         isAuthor={username === 'juliusomo'}
         setIsEditingMode={setIsEditingMode}
         setIsReplyingMode={setIsReplyingMode}
