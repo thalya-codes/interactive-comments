@@ -11,6 +11,7 @@ import {
 } from '@/interfaces/IActions';
 import { findComment } from '@/utils/findComment';
 import { findReply } from '@/utils/findReply';
+import { handleVotes } from '@/utils/handleVotes';
 
 const { comments }: ICommentData = data;
 
@@ -89,21 +90,11 @@ export const slice = createSlice({
     },
     //TODO: Implementar reducers abaixo a nível de replies
     addVote(state, { payload: { id, parentId } }) {
-      const foundedComment = parentId
-        ? findReply<ICommentDataBase>({
-            id,
-            parentId,
-            state,
-          })
-        : findComment<ICommentDataBase>({
-            id,
-            state,
-          });
-
-      if (foundedComment.hasAlreadyVoted) return;
-
-      foundedComment.hasAlreadyVoted = true;
-      foundedComment.score++;
+      handleVotes({
+        id, 
+        parentId,
+        state
+      })
     },
     removeVote(state, { payload: { id } }) {
       const foundedComment = findComment<ICommentDataBase>({
