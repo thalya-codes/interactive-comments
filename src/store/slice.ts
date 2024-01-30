@@ -96,16 +96,13 @@ export const slice = createSlice({
         state
       })
     },
-    removeVote(state, { payload: { id } }) {
-      const foundedComment = findComment<ICommentDataBase>({
+    removeVote(state, { payload: { id, parentId } }) {
+      handleVotes({
         id,
+        parentId,
         state,
-      });
-
-      if (!foundedComment.hasAlreadyVoted) return;
-
-      foundedComment.score--;
-      foundedComment.hasAlreadyVoted = false;
+        action: 'REMOVE'
+      })
     },
   },
 });
