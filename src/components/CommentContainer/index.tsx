@@ -17,13 +17,11 @@ export function CommentContainer({
   score,
   avatar,
   username,
-  commentListRef,
   className = '',
 }: ICommentContainer) {
   const dispatch = useDispatch();
   const [isEditingMode, setIsEditingMode] = useState(false);
-  const { showModal, onShowModal, onHideModal } =
-    useModal(commentListRef);
+  const { showModal, onShowModal, onHideModal } = useModal();
   const [isReplyingMode, setIsReplyingMode] =
     useState(false);
   const [editingCommentValue, setEditingCommentValue] =

@@ -1,17 +1,15 @@
 import { useSelector } from 'react-redux';
 import { ICommentDataBase } from '@/interfaces/ICommentsData';
 import { CommentContainer } from '@/components/CommentContainer';
-import { useRef } from 'react';
 
 function App() {
   const comments = useSelector(
     (selector) => selector.comments
   );
-  const commentListRef = useRef<HTMLUListElement>(null);
 
   return (
     <div className='w-screen h-screen flex flex-col items-center'>
-      <ul ref={commentListRef}>
+      <ul>
         {comments.map(
           ({
             content,
@@ -29,7 +27,6 @@ function App() {
                 score={score}
                 avatar={image.png}
                 createdAt={createdAt}
-                commentListRef={commentListRef}
                 className={
                   replies && replies?.length > 0
                     ? ' mb-14'
@@ -58,7 +55,6 @@ function App() {
                           score={score}
                           avatar={image.png}
                           createdAt={createdAt}
-                          commentListRef={commentListRef}
                         />
                       </li>
                     )
