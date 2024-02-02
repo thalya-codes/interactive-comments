@@ -15,7 +15,7 @@ export function CurrentUserField({
   } = data;
 
   return (
-    <div className='flex gap-5 w-6/12 mt-14'>
+    <div className='flex gap-5 w-full mt-14 bg-white rounded-md shadow-md p-5'>
       <Avatar src={image.png} alt={`Avatar ${username}`} />
       
       <Textarea
