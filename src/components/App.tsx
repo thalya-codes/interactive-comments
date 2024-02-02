@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { ICommentDataBase } from '@/interfaces/ICommentsData';
 import { CommentContainer } from '@/components/CommentContainer';
+import { CommentList } from './CommentList';
 
 function App() {
   const comments = useSelector(
@@ -8,8 +9,8 @@ function App() {
   );
 
   return (
-    <div className='w-screen h-screen flex flex-col items-center'>
-      <ul>
+    <main className='flex justify-center w-full my-8'>
+      <CommentList>
         {comments.map(
           ({
             content,
@@ -29,12 +30,12 @@ function App() {
                 createdAt={createdAt}
                 className={
                   replies && replies?.length > 0
-                    ? ' mb-14'
+                    ? ' mb-10'
                     : ''
                 }
               />
               {replies && (
-                <ul className='ml-14 flex flex-col gap-14'>
+                <CommentList className='ml-9 pl-8 border-l-2 border-spacing-7 border-neutral-300'>
                   {replies.map(
                     ({
                       id,
@@ -59,13 +60,13 @@ function App() {
                       </li>
                     )
                   )}
-                </ul>
+                </CommentList>
               )}
             </li>
           )
         )}
-      </ul>
-    </div>
+      </CommentList>
+    </main>
   );
 }
 
