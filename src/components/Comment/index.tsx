@@ -27,7 +27,7 @@ export function Comment({
   };
 
   return (
-    <div className='flex gap-3 w-6/12'>
+    <div className='mx-3 bg-white rounded-md shadow-md p-5 flex gap-3 w-full'>
       <VoteControls
         id={id}
         parentId={parentId}
