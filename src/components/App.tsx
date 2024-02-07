@@ -10,7 +10,7 @@ function App() {
 
   return (
     <main className='flex justify-center w-full my-8'>
-      <CommentList>
+      <CommentList className='w-[600px] sm:w-[85%]'>
         {comments.map(
           ({
             content,
@@ -35,7 +35,7 @@ function App() {
                 }
               />
               {replies && (
-                <CommentList className='ml-9 pl-8 border-l-2 border-spacing-7 border-neutral-300'>
+                <CommentList className='ml-9 pl-8 sm:pl-5 border-l-2 border-spacing-7 border-neutral-300'>
                   {replies.map(
                     ({
                       id,
