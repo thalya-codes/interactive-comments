@@ -5,9 +5,7 @@ export function CommentList({
   className = '',
 }: ICommentList) {
   return (
-    <ul
-      className={`flex flex-col gap-10 w-8/12 md:w-[600px] ${className}`}
-    >
+    <ul className={`flex flex-col gap-10  ${className}`}>
       {children}
     </ul>
   );
