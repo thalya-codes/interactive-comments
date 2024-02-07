@@ -6,7 +6,7 @@ export interface IComment
   extends Omit<IHeader, 'children'>,
     IVoteControls {
   children: ReactNode;
-  setIsReplyingMode?: Dispatch<SetStateAction<boolean>>;
-  setIsEditingMode?: Dispatch<SetStateAction<boolean>>;
-  onShowModal?: () => void;
+  setIsReplyingMode: Dispatch<SetStateAction<boolean>>;
+  setIsEditingMode: Dispatch<SetStateAction<boolean>>;
+  onShowModal: () => void;
 }
