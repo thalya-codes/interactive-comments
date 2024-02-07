@@ -1,7 +1,7 @@
-import { Button } from '@components/Button';
 import { Header } from '@components/Header';
 import { VoteControls } from '@components/VoteControls';
 import { IComment } from '@/interfaces/IComment';
+import { CommentRightButtons } from '../CommentRightButtons';
 
 export function Comment({
   id,
@@ -10,7 +10,7 @@ export function Comment({
   score,
   createdAt,
   children,
-  isAuthor,
+  isAuthor = false,
   parentId,
   setIsReplyingMode,
   setIsEditingMode,
@@ -27,11 +27,12 @@ export function Comment({
   };
 
   return (
-    <div className='mx-3 bg-white rounded-md shadow-md p-5 flex gap-3 w-full'>
+    <div className='mx-3 bg-white rounded-md shadow-md p-5 flex gap-3 w-full sm:flex-col sm:justify-between sm:gap-4'>
       <VoteControls
         id={id}
         parentId={parentId}
         score={score}
+        className='sm:hidden'
       />
 
       <div className='flex flex-col self-center gap-3 w-full'>
@@ -41,34 +42,32 @@ export function Comment({
           avatar={avatar}
           isAuthor={isAuthor}
         >
-          {isAuthor ? (
-            <div className='flex gap-2 self-start'>
-              <Button
-                variants='soft-red'
-                onClick={onShowModal}
-              >
-                Delete
-              </Button>
-
-              <Button
-                variants='moderate-blue'
-                onClick={handleEditingMode}
-              >
-                Edit
-              </Button>
-            </div>
-          ) : (
-            <Button
-              variants='moderate-blue'
-              className='self-start'
-              onClick={handleReplyingMode}
-            >
-              Reply
-            </Button>
-          )}
+          <CommentRightButtons
+            isAuthor={isAuthor}
+            className={'sm:hidden self-start'}
+            onShowModal={onShowModal}
+            handleEditingMode={handleEditingMode}
+            handleReplyingMode={handleReplyingMode}
+          />
         </Header>
 
         {children}
+      </div>
+
+      <div className='hidden sm:flex sm:justify-between sm:gap-4'>
+        <VoteControls
+          id={id}
+          parentId={parentId}
+          score={score}
+        />
+
+        <CommentRightButtons
+          className='self-center'
+          isAuthor={isAuthor}
+          onShowModal={onShowModal}
+          handleEditingMode={handleEditingMode}
+          handleReplyingMode={handleReplyingMode}
+        />
       </div>
     </div>
   );
