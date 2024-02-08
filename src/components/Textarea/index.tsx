@@ -11,7 +11,7 @@ export function Textarea({
 }: ITextarea) {
   return (
     <textarea
-      className={`text-sm text-neutral-grayish-blue p-2 rounded-md border border-slate-200 focus:border-primary-moderate-blue  shadow-sm outline-none transition-all resize-none ${className}`}
+      className={`text-sm text-neutral-grayish-blue p-3 rounded-md border border-slate-200 focus:border-primary-moderate-blue  shadow-sm outline-none transition-all resize-none xs:h-36 ${className}`}
       cols={cols}
       rows={rows}
       value={value}
