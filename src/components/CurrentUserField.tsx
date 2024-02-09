@@ -8,6 +8,8 @@ export function CurrentUserField({
   value,
   setValue,
   buttonText,
+  className = 'w-full',
+  placeholder = '',
   onClick,
 }: ICurrentUserField) {
   const {
@@ -15,7 +17,9 @@ export function CurrentUserField({
   } = data;
 
   return (
-    <div className='flex gap-5 w-full mt-14 bg-white rounded-md shadow-md p-5 sm:flex-col'>
+    <div
+      className={`flex gap-5 mt-14 bg-white rounded-md shadow-md p-5 sm:flex-col ${className}`}
+    >
       <Avatar
         src={image.png}
         alt={`Avatar ${username}`}
@@ -27,6 +31,7 @@ export function CurrentUserField({
         value={value}
         setValue={setValue}
         className='flex-1'
+        placeholder={placeholder}
       />
 
       <div className='sm:flex sm:justify-between sm:items-center'>
