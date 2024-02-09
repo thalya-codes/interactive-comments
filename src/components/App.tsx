@@ -55,6 +55,7 @@ function App() {
                       content,
                       createdAt,
                       score,
+                      replyingTo,
                       user: { image, username },
                     }) => (
                       <li
@@ -69,6 +70,7 @@ function App() {
                           score={score}
                           avatar={image.png}
                           createdAt={createdAt}
+                          replyingTo={replyingTo}
                         />
                       </li>
                     )
