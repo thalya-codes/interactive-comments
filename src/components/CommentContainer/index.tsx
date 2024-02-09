@@ -17,11 +17,13 @@ export function CommentContainer({
   score,
   avatar,
   username,
+  replyingTo,
   className = '',
 }: ICommentContainer) {
   const dispatch = useDispatch();
   const [isEditingMode, setIsEditingMode] = useState(false);
-  const { showModal, onShowModal, onHideModal } = useModal();
+  const { showModal, onShowModal, onHideModal } =
+    useModal();
   const [isReplyingMode, setIsReplyingMode] =
     useState(false);
   const [editingCommentValue, setEditingCommentValue] =
@@ -85,6 +87,11 @@ export function CommentContainer({
           </div>
         ) : (
           <p className='text-neutral-grayish-blue text-sm'>
+            {replyingTo && (
+              <span className='font-medium text-primary-moderate-blue'>
+                @{replyingTo}
+              </span>
+            )}{' '}
             {content}
           </p>
         )}
