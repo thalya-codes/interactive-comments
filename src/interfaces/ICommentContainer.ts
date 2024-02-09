@@ -6,4 +6,5 @@ export interface ICommentContainer
     Omit<IHeader, 'isAuthor' | 'children'> {
   content: string;
   parentId?: string;
+  replyingTo?: string;
 }
