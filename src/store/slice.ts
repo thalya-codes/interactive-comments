@@ -73,6 +73,7 @@ export const slice = createSlice({
         payload: { id, content, parentId },
       }: ICommentActionContentPayload
     ) {
+      const indexOfTheLastCharacterReplyingTo: number = content.indexOf(',')+1;
       const foundedComment = findComment<ICommentDataBase>({
         id: parentId || id,
         state,
@@ -82,27 +83,25 @@ export const slice = createSlice({
         foundedComment.replies as ICommentDataBase[];
 
       const newReply = createNewComment({
-        content,
+        content: content.substring(indexOfTheLastCharacterReplyingTo),
         replyingTo: foundedComment.user.username,
       });
-
       replies.push(newReply);
     },
-    //TODO: Implementar reducers abaixo a nível de replies
     addVote(state, { payload: { id, parentId } }) {
       handleVotes({
-        id, 
+        id,
         parentId,
-        state
-      })
+        state,
+      });
     },
     removeVote(state, { payload: { id, parentId } }) {
       handleVotes({
         id,
         parentId,
         state,
-        action: 'REMOVE'
-      })
+        action: 'REMOVE',
+      });
     },
   },
 });
