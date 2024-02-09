@@ -2,14 +2,27 @@ import { useSelector } from 'react-redux';
 import { ICommentDataBase } from '@/interfaces/ICommentsData';
 import { CommentContainer } from '@/components/CommentContainer';
 import { CommentList } from './CommentList';
+import { CurrentUserField } from './CurrentUserField';
+import { useDispatch } from 'react-redux';
+import { addNewComment } from '@/store/slice';
+import { useState } from 'react';
 
 function App() {
+  const [newCommentValue, setNewCommentValue] =
+    useState('');
+
   const comments = useSelector(
     (selector) => selector.comments
   );
+  const dispatch = useDispatch();
+
+  const handleSendComment = (): void => {
+    dispatch(addNewComment({ content: newCommentValue }));
+    setNewCommentValue('');
+  };
 
   return (
-    <main className='flex justify-center w-full my-8'>
+    <main className='flex flex-col items-center w-full my-8'>
       <CommentList className='w-[600px] sm:w-[85%] xs:w-[95%]'>
         {comments.map(
           ({
@@ -66,6 +79,15 @@ function App() {
           )
         )}
       </CommentList>
+
+      <CurrentUserField
+        value={newCommentValue}
+        setValue={setNewCommentValue}
+        buttonText='Send'
+        className='w-[600px] sm:w-[85%] xs:w-[95%]'
+        placeholder='Add a new comment...'
+        onClick={handleSendComment}
+      />
     </main>
   );
 }
