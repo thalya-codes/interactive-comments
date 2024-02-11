@@ -49,6 +49,7 @@ export function CommentContainer({
         id,
         parentId,
         content: replyingCommentValue,
+        replyingTo: username,
       })
     );
     setIsReplyingMode(false);
