@@ -8,6 +8,7 @@ import {
 import {
   ICommentActionContentPayload,
   ICommentActionIdPayload,
+  IReplyCommentActionPayload,
 } from '@/interfaces/IActions';
 import { findComment } from '@/utils/findComment';
 import { findReply } from '@/utils/findReply';
@@ -70,10 +71,11 @@ export const slice = createSlice({
     replyComment(
       state,
       {
-        payload: { id, content, parentId },
-      }: ICommentActionContentPayload
+        payload: { id, content, parentId, replyingTo },
+      }: ICommentActionContentPayload<IReplyCommentActionPayload>
     ) {
-      const indexOfTheLastCharacterReplyingTo: number = content.indexOf(',')+1;
+      const indexOfTheLastCharacterReplyingTo: number =
+        content.indexOf(',') + 1;
       const foundedComment = findComment<ICommentDataBase>({
         id: parentId || id,
         state,
@@ -83,8 +85,10 @@ export const slice = createSlice({
         foundedComment.replies as ICommentDataBase[];
 
       const newReply = createNewComment({
-        content: content.substring(indexOfTheLastCharacterReplyingTo),
-        replyingTo: foundedComment.user.username,
+        content: content.substring(
+          indexOfTheLastCharacterReplyingTo
+        ),
+        replyingTo,
       });
       replies.push(newReply);
     },
