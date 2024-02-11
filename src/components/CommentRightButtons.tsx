@@ -8,8 +8,8 @@ export function CommentRightButtons({
   className,
   isAuthor,
   onShowModal,
-  handleEditingMode,
-  handleReplyingMode,
+  toggleEditingMode,
+  toggleReplyingMode,
 }: ICommentRightButtons) {
   const buttonWithIconClass = 'flex gap-2 items-center';
 
@@ -27,7 +27,7 @@ export function CommentRightButtons({
       <Button
         variants='moderate-blue'
         className={`${className} ${buttonWithIconClass}`}
-        onClick={handleEditingMode}
+        onClick={toggleEditingMode}
       >
         <EditIcon />
         <span>Edit</span>
@@ -37,7 +37,7 @@ export function CommentRightButtons({
     <Button
       variants='moderate-blue'
       className={`${className} ${buttonWithIconClass}`}
-      onClick={handleReplyingMode}
+      onClick={toggleReplyingMode}
     >
       <ReplyIcon />
       <span>Reply</span>
