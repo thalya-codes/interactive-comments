@@ -6,7 +6,7 @@ import data from '@/data/index';
 
 export function CurrentUserField({
   value,
-  setValue,
+  onChange,
   buttonText,
   className = 'w-full',
   placeholder = '',
@@ -29,7 +29,7 @@ export function CurrentUserField({
 
       <Textarea
         value={value}
-        setValue={setValue}
+        onChange={onChange}
         className='flex-1'
         placeholder={placeholder}
       />
