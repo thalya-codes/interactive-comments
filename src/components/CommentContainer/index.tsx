@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { SetStateAction, Dispatch, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Comment } from '@/components/Comment';
 import { Textarea } from '@components/Textarea';
 import { Button } from '@components/Button';
 import { CurrentUserField } from '@components/CurrentUserField';
-import { ICommentContainer } from '@/interfaces/ICommentContainer';
+import {
+  ICommentContainer,
+  IEditingMode,
+  IReplyingMode,
+} from '@/interfaces/ICommentContainer';
 import { replyComment, updateComment } from '@/store/slice';
 import { useModal } from '@/hooks/useModal';
 import { DeleteConfirmationModal } from '@components/DeleteConfirmationModal';
@@ -21,26 +25,39 @@ export function CommentContainer({
   className = '',
 }: ICommentContainer) {
   const dispatch = useDispatch();
-  const [isEditingMode, setIsEditingMode] = useState(false);
   const { showModal, onShowModal, onHideModal } =
     useModal();
-  const [isReplyingMode, setIsReplyingMode] =
-    useState(false);
-  const [editingCommentValue, setEditingCommentValue] =
-    useState(content);
-  const [replyingCommentValue, setReplyingCommentValue] =
-    useState(`@${username}, `);
+  const [replyingMode, setReplyingMode] =
+    useState<IReplyingMode>({
+      isReplying: false,
+      fieldValue: `@${username}, `,
+    });
+  const [editingMode, setEditingMode] =
+    useState<IEditingMode>({
+      isEditing: false,
+      fieldValue: content,
+    });
 
-  const handleEditComment = (): void => {
+  const updateTextareaValue = <T,>(
+    fieldValue: string,
+    setState: Dispatch<SetStateAction<T>>
+  ): void => {
+    setState((state) => ({ ...state, fieldValue }));
+  };
+
+  const handleUpdateComment = (): void => {
     dispatch(
       updateComment({
         id,
-        content: editingCommentValue,
+        content: editingMode.fieldValue,
         parentId,
       })
     );
 
-    setIsEditingMode(false);
+    setEditingMode((state) => ({
+      ...state,
+      isEditing: false,
+    }));
   };
 
   const handleReplyComment = (): void => {
@@ -48,11 +65,16 @@ export function CommentContainer({
       replyComment({
         id,
         parentId,
-        content: replyingCommentValue,
+        content: replyingMode.fieldValue,
         replyingTo: username,
       })
     );
-    setIsReplyingMode(false);
+
+    setReplyingMode((state) => ({
+      ...state,
+      fieldValue: `@${username}, `,
+      isReplying: false,
+    }));
   };
 
   return (
@@ -67,20 +89,22 @@ export function CommentContainer({
         id={id}
         parentId={parentId}
         isAuthor={username === 'juliusomo'}
-        setIsEditingMode={setIsEditingMode}
-        setIsReplyingMode={setIsReplyingMode}
+        setEditingMode={setEditingMode}
+        setReplyingMode={setReplyingMode}
         onShowModal={onShowModal}
       >
-        {isEditingMode ? (
+        {editingMode.isEditing ? (
           <div className='flex flex-col gap-5 w-full'>
             <Textarea
-              value={editingCommentValue}
-              setValue={setEditingCommentValue}
+              value={editingMode.fieldValue}
+              onChange={(value: string) => {
+                updateTextareaValue(value, setEditingMode);
+              }}
               className='w-full'
             />
             <Button
               variants='filled-moderate-blue'
-              onClick={handleEditComment}
+              onClick={handleUpdateComment}
               className='self-end'
             >
               Update
@@ -98,10 +122,15 @@ export function CommentContainer({
         )}
       </Comment>
 
-      {isReplyingMode && (
+      {replyingMode.isReplying && (
         <CurrentUserField
-          value={replyingCommentValue}
-          setValue={setReplyingCommentValue}
+          value={`${replyingMode.fieldValue}`}
+          onChange={(fieldValue: string) => {
+            updateTextareaValue(
+              fieldValue,
+              setReplyingMode
+            );
+          }}
           buttonText='Reply'
           onClick={handleReplyComment}
         />
