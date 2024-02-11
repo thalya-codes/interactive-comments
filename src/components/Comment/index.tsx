@@ -2,7 +2,6 @@ import { Header } from '@components/Header';
 import { VoteControls } from '@components/VoteControls';
 import { IComment } from '@/interfaces/IComment';
 import { CommentRightButtons } from '../CommentRightButtons';
-import { SetStateAction, Dispatch } from 'react';
 
 export function Comment({
   id,
@@ -13,15 +12,22 @@ export function Comment({
   children,
   isAuthor = false,
   parentId,
-  setIsReplyingMode,
-  setIsEditingMode,
+  setReplyingMode,
+  setEditingMode,
   onShowModal,
 }: IComment) {
-  const handleToggleMode = (
-    setToggleMode: Dispatch<SetStateAction<boolean>>
-  ): void => {
-    if (!setToggleMode) return;
-    setToggleMode((state) => !state);
+  const toggleReplyingMode = (): void => {
+    setReplyingMode((state) => ({
+      ...state,
+      isReplying: !state.isReplying,
+    }));
+  };
+
+  const toggleEditingMode = (): void => {
+    setEditingMode((state) => ({
+      ...state,
+      isEditing: !state.isEditing,
+    }));
   };
 
   return (
@@ -44,12 +50,8 @@ export function Comment({
             isAuthor={isAuthor}
             className={'sm:hidden self-start'}
             onShowModal={onShowModal}
-            handleEditingMode={() =>
-              handleToggleMode(setIsEditingMode)
-            }
-            handleReplyingMode={() =>
-              handleToggleMode(setIsReplyingMode)
-            }
+            toggleEditingMode={toggleEditingMode}
+            toggleReplyingMode={toggleReplyingMode}
           />
         </Header>
 
@@ -67,12 +69,8 @@ export function Comment({
           className='self-center'
           isAuthor={isAuthor}
           onShowModal={onShowModal}
-          handleEditingMode={() =>
-            handleToggleMode(setIsEditingMode)
-          }
-          handleReplyingMode={() =>
-            handleToggleMode(setIsReplyingMode)
-          }
+          toggleEditingMode={toggleEditingMode}
+          toggleReplyingMode={toggleReplyingMode}
         />
       </div>
     </div>
