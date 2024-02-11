@@ -1,8 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
-
 export interface ICurrentUserField {
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  onChange: (value: string) => void;
   buttonText: string;
   className?: string;
   placeholder?: string;
