@@ -1,11 +1,10 @@
-import {
-  Dispatch,
-  SetStateAction,
-  TextareaHTMLAttributes,
-} from 'react';
+import { TextareaHTMLAttributes } from 'react';
 
 export interface ITextarea
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  extends Omit<
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    'onChange'
+  > {
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  onChange: (value: string) => void;
 }
