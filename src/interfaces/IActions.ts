@@ -1,10 +1,14 @@
-export interface ICommentActionContentPayload {
+export interface IPayload {
+  id: string;
+  content: string;
+  parentId?: string;
+}
+
+export interface ICommentActionContentPayload<
+  Payload = IPayload,
+> {
   type: string;
-  payload: {
-    id: string;
-    content: string;
-    parentId?: string;
-  };
+  payload: Payload;
 }
 
 export interface ICommentActionIdPayload {
@@ -13,4 +17,9 @@ export interface ICommentActionIdPayload {
     id: string;
     parentId?: string;
   };
+}
+
+export interface IReplyCommentActionPayload
+  extends IPayload {
+  replyingTo: string;
 }
