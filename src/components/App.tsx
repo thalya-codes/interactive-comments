@@ -84,7 +84,7 @@ function App() {
 
       <CurrentUserField
         value={newCommentValue}
-        setValue={setNewCommentValue}
+        onChange={setNewCommentValue}
         buttonText='Send'
         className='w-[600px] sm:w-[85%] xs:w-[95%]'
         placeholder='Add a new comment...'
