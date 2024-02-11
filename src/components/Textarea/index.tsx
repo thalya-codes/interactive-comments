@@ -5,7 +5,7 @@ export function Textarea({
   cols = 45,
   rows = 4,
   value,
-  setValue,
+  onChange,
   className = '',
   ...props
 }: ITextarea) {
@@ -18,7 +18,7 @@ export function Textarea({
       onChange={({
         target: { value },
       }: ChangeEvent<HTMLTextAreaElement>) =>
-        setValue(value)
+        onChange(value)
       }
       {...props}
     />
