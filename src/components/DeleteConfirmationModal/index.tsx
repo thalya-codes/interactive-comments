@@ -2,13 +2,19 @@ import { useDispatch } from 'react-redux';
 import { Button } from '../Button';
 import { deleteComment } from '@/store/slice';
 import { IDeleteConfirmationModal } from '@/interfaces/IDeleteConfirmationModal';
+import { ModalClassByVisibityStatus } from './ModalClassByVisibityStatus';
 
 export function DeleteConfirmationModal({
   id,
   parentId,
+  showModal,
   onHideModal,
 }: IDeleteConfirmationModal) {
   const dispatch = useDispatch();
+  const classByModalVisibilityStatus: string =
+    ModalClassByVisibityStatus[
+      String(showModal) as keyof typeof showModal
+    ];
 
   const handleDeleteComment = (): void => {
     dispatch(deleteComment({ id, parentId }));
@@ -16,8 +22,12 @@ export function DeleteConfirmationModal({
   };
 
   return (
-    <div className='fixed h-screen w-screen flex justify-center items-center bg-neutral-dark-blue-opacity-04 top-0 left-0'>
-      <div className='flex flex-col gap-3 w-96 xs:w-[310px] bg-white p-4 rounded-md relative z-20'>
+    <div
+      className={`${classByModalVisibilityStatus} fixed h-screen w-screen flex justify-center items-center bg-neutral-dark-blue-opacity-04 top-0 left-0 transition-all`}
+    >
+      <div
+        className={`${classByModalVisibilityStatus} flex flex-col gap-3 w-96 xs:w-[310px] bg-white p-4 rounded-md relative z-20 transition-all`}
+      >
         <h2 className='font-bold text-lg text-neutral-dark-blue'>
           Delete comment
         </h2>
