@@ -28,6 +28,28 @@ export default {
         sm: { max: '640px' },
         xs: { max: '375px' },
       },
+      keyframes: {
+        'fade-in': {
+          '0%': {
+            opacity: 0,
+            visibility: 'hidden',
+          },
+          '100%': {
+            opacity: 1,
+            visibility: 'visible',
+          },
+        },
+        'fade-out': {
+          '0%': { opacity: 1 },
+          '25%': { opacity: 0.55 },
+          '50%': { opacity: 0.25, visibility: 'visible' },
+          '100%': { opacity: 0, visibility: 'hidden' },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 500ms ease-in-out forwards',
+        'fade-out': 'fade-out 900ms ease-in-out forwards',
+      },
     },
   },
   plugins: [],
