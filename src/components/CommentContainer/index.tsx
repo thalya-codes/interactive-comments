@@ -136,13 +136,12 @@ export function CommentContainer({
         />
       )}
 
-      {showModal && (
-        <DeleteConfirmationModal
-          id={id}
-          parentId={parentId}
-          onHideModal={onHideModal}
-        />
-      )}
+      <DeleteConfirmationModal
+        id={id}
+        parentId={parentId}
+        showModal={showModal}
+        onHideModal={onHideModal}
+      />
     </div>
   );
 }
