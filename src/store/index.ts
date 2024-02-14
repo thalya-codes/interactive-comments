@@ -1,9 +1,17 @@
-import { configureStore  } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { reducer } from './slice';
-import { loadComments, persistComments } from './localStorage';
+import {
+  loadComments,
+  persistComments,
+} from './localStorage';
 
-export default configureStore({
+const store = configureStore({
   reducer: { comments: reducer },
   preloadedState: loadComments(),
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(persistComments),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(persistComments),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
