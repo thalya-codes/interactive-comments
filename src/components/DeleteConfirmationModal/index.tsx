@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { Button } from '../Button';
 import { deleteComment } from '@/store/slice';
 import { IDeleteConfirmationModal } from '@/interfaces/IDeleteConfirmationModal';
 import { ModalClassByVisibityStatus } from './ModalClassByVisibityStatus';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 export function DeleteConfirmationModal({
   id,
@@ -10,7 +10,7 @@ export function DeleteConfirmationModal({
   showModal,
   onHideModal,
 }: IDeleteConfirmationModal) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const classByModalVisibilityStatus: string =
     ModalClassByVisibityStatus[
       String(showModal) as keyof typeof showModal

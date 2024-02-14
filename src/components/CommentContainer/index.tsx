@@ -1,5 +1,4 @@
 import { SetStateAction, Dispatch, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Comment } from '@/components/Comment';
 import { Textarea } from '@components/Textarea';
 import { Button } from '@components/Button';
@@ -12,6 +11,7 @@ import {
 import { replyComment, updateComment } from '@/store/slice';
 import { useModal } from '@/hooks/useModal';
 import { DeleteConfirmationModal } from '@components/DeleteConfirmationModal';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 export function CommentContainer({
   id,
@@ -24,7 +24,7 @@ export function CommentContainer({
   replyingTo,
   className = '',
 }: ICommentContainer) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { showModal, onShowModal, onHideModal } =
     useModal();
   const [replyingMode, setReplyingMode] =

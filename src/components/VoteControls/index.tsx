@@ -1,9 +1,9 @@
-import { useDispatch } from 'react-redux';
 import { Button } from '../Button';
 import { addVote, removeVote } from '@/store/slice';
 import { IVoteControls } from '@/interfaces/IVoteControls';
 import { MinusIcon } from '../Icons/MinusIcon';
 import { PlusIcon } from '../Icons/PlusIcon';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 export function VoteControls({
   id,
@@ -11,7 +11,7 @@ export function VoteControls({
   score,
   className = '',
 }: IVoteControls) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div
