@@ -1,20 +1,16 @@
-import { useSelector } from 'react-redux';
 import { ICommentDataBase } from '@/interfaces/ICommentsData';
 import { CommentContainer } from '@/components/CommentContainer';
 import { CommentList } from './CommentList';
 import { CurrentUserField } from './CurrentUserField';
-import { useDispatch } from 'react-redux';
 import { addNewComment } from '@/store/slice';
 import { useState } from 'react';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 function App() {
-  const [newCommentValue, setNewCommentValue] =
-    useState('');
-
-  const comments = useSelector(
-    (selector) => selector.comments
-  );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const comments = useAppSelector((selector) => selector.comments);
+  const [newCommentValue, setNewCommentValue] = useState('');
 
   const handleSendComment = (): void => {
     dispatch(addNewComment({ content: newCommentValue }));
