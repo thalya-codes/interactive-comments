@@ -22,3 +22,38 @@ export const mock_new_comment = {
   },
   replies: [],
 };
+
+export const mock_comments = [
+  {
+    id: '00aabB',
+    content: mock_comment_content,
+    createdAt: mock_comment_created_at,
+    score: 3,
+    replyingTo: 'megan',
+    hasAlreadyVoted: true,
+    user: {
+      image: {
+        png: '../assets/avatars/jonh-doe.png',
+        webp: '../assets/avatars/jonh-doe.webp',
+      },
+      username: 'jonh-doe',
+    },
+    replies: [],
+  },
+  {
+    id: '12ccnn',
+    content: 'Curabitur condimentum posuere dui eu congue. In aliquet est vitae interdum mattis.',
+    createdAt: mock_comment_created_at,
+    score: 1,
+    replyingTo: 'marcus',
+    hasAlreadyVoted: false,
+    user: {
+      image: {
+        png: '../assets/avatars/mariah.png',
+        webp: '../assets/avatars/mariah.webp',
+      },
+      username: 'mariah',
+    },
+    replies: [],
+  },
+];
