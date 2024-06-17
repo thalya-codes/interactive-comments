@@ -42,7 +42,8 @@ export const mock_comments = [
   },
   {
     id: '12ccnn',
-    content: 'Curabitur condimentum posuere dui eu congue. In aliquet est vitae interdum mattis.',
+    content:
+      'Curabitur condimentum posuere dui eu congue. In aliquet est vitae interdum mattis.',
     createdAt: mock_comment_created_at,
     score: 1,
     replyingTo: 'marcus',
@@ -54,6 +55,26 @@ export const mock_comments = [
       },
       username: 'mariah',
     },
-    replies: [],
+    replies: [
+      {
+        id: '15nnbb',
+        content:
+          'Fusce eget lorem quis nisl placerat egestas quis ut justo. Proin rhoncus iaculis est vitae tincidunt. ',
+        createdAt: mock_comment_created_at,
+        score: 3,
+        replyingTo: 'mariah',
+        hasAlreadyVoted: false,
+        user: {
+          image: {
+            png: '../assets/avatars/anne-fukuzawa.png',
+            webp: '../assets/avatars/anne-fukuzawa.webp',
+          },
+          username: 'anne-fukuzawa',
+        },
+      },
+    ],
   },
 ];
+
+export const mock_parent_comment = mock_comments[1];
+export const mock_reply_comment = mock_comments[1].replies[0]
