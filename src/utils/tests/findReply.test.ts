@@ -31,4 +31,14 @@ describe('findReply function', () => {
 
     expect(foundedReplyIndex).toBe(0);
   });
+
+  it('should throw an error when passing an invalid ID', () => {
+    expect(() =>
+      findReply({
+        id: 'invalid-id',
+        parentId: mock_parent_comment.id,
+        state: mock_comments,
+      })
+    ).toThrow(/^Reply with ID invalid-id not founded.$/);
+  });
 });
