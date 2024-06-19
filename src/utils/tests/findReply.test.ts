@@ -20,4 +20,15 @@ describe('findReply function', () => {
 
     expect(foundedReply).toEqual(mock_reply_comment);
   });
+
+  it('should return the correct index of the reply for the given id', () => {
+    const foundedReplyIndex = findReply({
+      id: mock_reply_comment.id,
+      parentId: mock_parent_comment.id,
+      state: mock_comments,
+      method: 'findIndex',
+    });
+
+    expect(foundedReplyIndex).toBe(0);
+  });
 });
