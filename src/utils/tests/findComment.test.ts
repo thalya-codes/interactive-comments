@@ -28,6 +28,6 @@ describe('findComment function', () => {
         id: 'id--1',
         state: mock_comments,
       })
-    ).toThrow(`Comment with ID id--1 not founded.`);
+    ).toThrow(/^Comment with ID id--1 not founded.$/);
   });
 });
