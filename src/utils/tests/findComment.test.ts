@@ -1,5 +1,5 @@
 import { findComment } from '../findComment';
-import { mock_comments } from './mock.utils';
+import { mock_comments } from './utils/mock.utils';
 
 describe('findComment function', () => {
   it('should return the correct comment for the given id', () => {
