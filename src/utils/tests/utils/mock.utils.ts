@@ -72,6 +72,22 @@ export const mock_comments = [
           username: 'anne-fukuzawa',
         },
       },
+      {
+        id: '15nnbbLMNHDH',
+        content:
+          'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+        createdAt: mock_comment_created_at,
+        score: 3,
+        replyingTo: 'mariah',
+        hasAlreadyVoted: true,
+        user: {
+          image: {
+            png: '../assets/avatars/fernanda-montenegro.png',
+            webp: '../assets/avatars/fernanda-montenegro.webp',
+          },
+          username: 'fernanda-montenegro',
+        },
+      },
     ],
   },
 ];
