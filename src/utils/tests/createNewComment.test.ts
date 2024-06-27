@@ -4,7 +4,7 @@ import {
   mock_comment_created_at,
   mock_comment_replying_to,
   mock_new_comment,
-} from './mock.utils';
+} from './utils/mock.utils';
 import { createNewComment } from '../createNewComment';
 
 jest.mock('uuid', () => ({
