@@ -4,7 +4,7 @@ import {
   mock_comments,
   mock_parent_comment,
   mock_reply_comment,
-} from './mock.utils';
+} from './utils/mock.utils';
 
 jest.mock('../findComment', () => ({
   findComment: () => mock_parent_comment,
